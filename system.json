@@ -46,39 +46,61 @@
   "documentTypes": {
     "Actor": {
       "heroine": {
-        "htmlFields": ["biography", "notes"]
+        "htmlFields": [
+          "biography",
+          "notes"
+        ]
       },
       "enemy": {
-        "htmlFields": ["notes"]
+        "htmlFields": [
+          "notes"
+        ]
       },
       "team": {
-        "htmlFields": ["notes"]
+        "htmlFields": [
+          "notes"
+        ]
       }
     },
     "Item": {
       "weapon": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "gimmick": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "ability": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "spell": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "condition": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "enemyTrait": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
   "authors": [
     {
-      "name": "Daisy Chainsaw Foundry System Contributors"
+      "name": "HoloLight17"
+    },
+    {
+      "name": "OpenAI Codex"
     }
   ],
   "socket": false,
@@ -100,5 +122,8 @@
       "url": "systems/daisy-chainsaw/assets/art/cover.png",
       "thumbnail": "systems/daisy-chainsaw/assets/art/cover.png"
     }
-  ]
+  ],
+  "url": "https://github.com/spechurkin/daisy-chainsaw-vtt",
+  "manifest": "https://github.com/spechurkin/daisy-chainsaw-vtt/releases/latest/download/system.json",
+  "download": "https://github.com/spechurkin/daisy-chainsaw-vtt/releases/latest/download/maid-rpg-vtt.zip"
 }
