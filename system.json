@@ -1,0 +1,104 @@
+{
+  "id": "daisy-chainsaw",
+  "title": "Daisy Chainsaw",
+  "type": "system",
+  "description": "Русская реализация Daisy Chainsaw с классическим листом и вариантом в стиле Windows 98.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14.364",
+    "maximum": "14"
+  },
+  "esmodules": [
+    "daisy-chainsaw.mjs"
+  ],
+  "styles": [
+    "styles/base.css",
+    "styles/sheets/panel.css",
+    "styles/sheets/enemy.css",
+    "styles/sheets/team.css",
+    "styles/sheets/item.css",
+    "styles/applications/rule-browser.css",
+    "styles/content/rich-text.css",
+    "styles/content/tables.css",
+    "styles/journals/base.css",
+    "styles/journals/classic.css",
+    "styles/journals/windows-98.css",
+    "styles/responsive.css",
+    "styles/chat.css",
+    "styles/sheets/heroine.css",
+    "styles/sheets/heroine-classic.css",
+    "styles/sheets/heroine-98.css",
+    "styles/application-state.css"
+  ],
+  "languages": [
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "heroine": {
+        "htmlFields": ["biography", "notes"]
+      },
+      "enemy": {
+        "htmlFields": ["notes"]
+      },
+      "team": {
+        "htmlFields": ["notes"]
+      }
+    },
+    "Item": {
+      "weapon": {
+        "htmlFields": ["description"]
+      },
+      "gimmick": {
+        "htmlFields": ["description"]
+      },
+      "ability": {
+        "htmlFields": ["description"]
+      },
+      "spell": {
+        "htmlFields": ["description"]
+      },
+      "condition": {
+        "htmlFields": ["description"]
+      },
+      "enemyTrait": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "authors": [
+    {
+      "name": "Daisy Chainsaw Foundry System Contributors"
+    }
+  ],
+  "socket": false,
+  "initiative": "0",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "resources.damage",
+  "secondaryTokenAttribute": "resources.burnout",
+  "background": "systems/daisy-chainsaw/assets/art/cover.png",
+  "media": [
+    {
+      "type": "cover",
+      "url": "systems/daisy-chainsaw/assets/art/cover.png"
+    },
+    {
+      "type": "setup",
+      "url": "systems/daisy-chainsaw/assets/art/cover.png",
+      "thumbnail": "systems/daisy-chainsaw/assets/art/cover.png"
+    }
+  ]
+}

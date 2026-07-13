@@ -1,0 +1,162 @@
+/* Daisy Chainsaw system UI — Foundry VTT 13/14. */
+
+@font-face {
+    font-family: "Daisy Daydream";
+    src: url("../assets/fonts/Daydream.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-Regular.ttc") format("collection");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-Regular.ttc") format("collection");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-Bold.ttc") format("collection");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-Bold.ttc") format("collection");
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-ExtraBold.ttc") format("collection");
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Daisy Iosevka";
+    src: url("../assets/fonts/Iosevka-ExtraBold.ttc") format("collection");
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Application frame and shared controls                                     */
+/* ------------------------------------------------------------------------- */
+
+.application.daisy-chainsaw {
+    --daisy-ink: #130d12;
+    --daisy-paper: #f4f0f2;
+    --daisy-paper-deep: #e6dfe4;
+    --daisy-pink: #f5004f;
+    --daisy-pink-dark: #a90038;
+    --daisy-violet: #33263a;
+    --daisy-muted: #6c6069;
+    --daisy-line: rgba(19, 13, 18, 0.24);
+    --daisy-focus: #00a9ff;
+    --daisy-shadow: 0 12px 32px rgba(13, 5, 11, 0.34);
+    color: var(--daisy-ink);
+    color-scheme: light;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+}
+
+.application.daisy-chainsaw,
+.application.daisy-chainsaw * {
+    box-sizing: border-box;
+}
+
+.application.daisy-chainsaw:is(.daisy-heroine-classic, .daisy-heroine-98) {
+    min-width: 700px;
+    min-height: 530px;
+}
+
+.application.daisy-chainsaw:is(.daisy-enemy-sheet, .daisy-team-sheet, .daisy-item-sheet) {
+    min-width: 460px;
+    min-height: 430px;
+}
+
+.application.daisy-chainsaw.daisy-rule-browser {
+    min-width: 560px;
+    min-height: 440px;
+}
+
+.application.daisy-chainsaw > .window-header,
+.application.daisy-chainsaw .window-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    background: #171016;
+    color: #fff;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+}
+
+.application.daisy-chainsaw .window-header .window-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+}
+
+.application.daisy-chainsaw :is(input, select, textarea) {
+    min-width: 0;
+    border: 1px solid var(--daisy-line);
+    border-radius: 4px;
+    outline: 0;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--daisy-ink);
+}
+
+.application.daisy-chainsaw textarea {
+    padding: 8px 10px;
+    line-height: 1.45;
+    resize: vertical;
+}
+
+.application.daisy-chainsaw :is(input, select, textarea):hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--daisy-pink) 48%, var(--daisy-line));
+}
+
+.application.daisy-chainsaw :is(button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--daisy-focus) 85%, white);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.88);
+    z-index: 20;
+}
+
+.application.daisy-chainsaw :is(input, select, textarea, button):disabled {
+    cursor: not-allowed;
+    opacity: 0.62;
+}
+
+.application.daisy-chainsaw button:not(:disabled) {
+    cursor: pointer;
+}
+
+.daisy-sheet-window-content,
+.daisy-item-window-content,
+.daisy-browser-window-content {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.daisy-sheet-window-content {
+    overflow: auto !important;
+    background: radial-gradient(circle at 18% 10%, rgba(245, 0, 79, 0.2), transparent 34%),
+    #262027;
+    scrollbar-color: var(--daisy-pink) #221a21;
+    scrollbar-width: thin;
+}

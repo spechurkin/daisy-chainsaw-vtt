@@ -1,0 +1,30 @@
+/* Tables inside Daisy rich text and journals. */
+
+:where(.daisy-prose, .daisy-journal)
+:where(table) {
+    width: 100%;
+    margin: 1em 0;
+    overflow: hidden;
+    border: 1px solid rgba(32, 23, 30, 0.28);
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+:where(.daisy-prose, .daisy-journal)
+:where(th, td) {
+    padding: 0.55em 0.7em;
+    border: 1px solid rgba(32, 23, 30, 0.22);
+    text-align: left;
+    vertical-align: top;
+}
+
+:where(.daisy-prose, .daisy-journal) th {
+    background: #171016;
+    color: #fff;
+    font-weight: 800;
+}
+
+:where(.daisy-prose, .daisy-journal)
+tbody tr:nth-child(even) {
+    background: rgba(233, 0, 74, 0.045);
+}

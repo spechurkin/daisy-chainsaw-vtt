@@ -1,0 +1,17 @@
+/* ApplicationV2 keeps the sheet's minimum dimensions unless they are reset
+   with a selector more specific than the normal sheet constraints. */
+.application.daisy-chainsaw.minimized {
+    width: min(440px, calc(100vw - 16px)) !important;
+    height: var(--header-height, 36px) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: var(--header-height, 36px) !important;
+    overflow: hidden !important;
+}
+
+.application.daisy-chainsaw.minimized > .window-content,
+.application.daisy-chainsaw.minimized .daisy-sheet-window-content,
+.application.daisy-chainsaw.minimized .daisy-item-window-content,
+.application.daisy-chainsaw.minimized .daisy-browser-window-content {
+    display: none !important;
+}

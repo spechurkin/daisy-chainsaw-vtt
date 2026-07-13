@@ -1,0 +1,280 @@
+/* ------------------------------------------------------------------------- */
+/* Complete JournalEntry chrome                                              */
+/* ------------------------------------------------------------------------- */
+
+.application.daisy-journal {
+    --daisy-journal-ink: #171016;
+    --daisy-journal-paper: #f4f0f2;
+    --daisy-journal-paper-bright: #fff;
+    --daisy-journal-pink: #f5004f;
+    --daisy-journal-violet: #33263a;
+    min-width: 720px;
+    min-height: 520px;
+    border: 1px solid #171016;
+    border-radius: 8px;
+    background: #171016;
+    box-shadow: 0 18px 48px rgba(13, 5, 11, 0.42);
+    color: var(--daisy-journal-ink);
+    color-scheme: light;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+    font-size: 0.94rem;
+    line-height: 1.4;
+}
+
+.application.daisy-journal,
+.application.daisy-journal * {
+    box-sizing: border-box;
+}
+
+.application.daisy-journal > .window-header,
+.application.daisy-journal .window-header {
+    min-height: 42px;
+    border: 0;
+    border-bottom: 4px solid var(--daisy-journal-pink);
+    background: #171016;
+    color: #fff;
+}
+
+.application.daisy-journal .window-header .window-title {
+    display: flex;
+    min-width: 0;
+    align-self: stretch;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+	font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.application.daisy-journal .window-header :is(a, button, i) {
+    color: #fff;
+}
+
+.application.daisy-journal .window-header button {
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.application.daisy-journal .window-header button:hover {
+    border-color: #fff;
+    background: var(--daisy-journal-pink);
+}
+
+.application.daisy-journal > .window-content,
+.application.daisy-journal .window-content {
+    min-height: 0;
+    padding: 0 !important;
+    overflow: hidden;
+    border: 0;
+    background: var(--daisy-journal-paper);
+}
+
+.daisy-journal :is(.journal-entry-content, .journal-page-content) {
+    min-width: 0;
+    min-height: 0;
+}
+
+.daisy-journal .journal-entry-content {
+    background:
+        linear-gradient(135deg, rgba(245, 0, 79, 0.08), transparent 38%),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(23, 16, 22, 0.045) 31px 32px),
+        var(--daisy-journal-paper);
+}
+
+.daisy-journal .journal-sidebar {
+    width: clamp(220px, 27%, 300px);
+    min-width: 220px;
+    padding: 14px;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    background:
+        linear-gradient(150deg, rgba(245, 0, 79, 0.18), transparent 38%),
+        var(--daisy-journal-violet);
+    color: #fff;
+}
+
+.daisy-journal .journal-sidebar :is(.journal-header, header) {
+    margin: -14px -14px 12px;
+    padding: 13px 14px 11px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    background: #171016;
+}
+
+.daisy-journal .journal-sidebar :is(h1, h2, h3, h4) {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.daisy-journal .journal-sidebar :is(h1, h2, h3, h4)::before {
+    display: none;
+    content: none;
+}
+
+.daisy-journal .journal-sidebar :is(search, .journal-search) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.daisy-journal .journal-sidebar :is(input, select) {
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.11);
+    color: #fff;
+}
+
+.daisy-journal .journal-sidebar input::placeholder {
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.daisy-journal .journal-sidebar :is(.pages-list, .directory-list) {
+    margin: 0;
+    padding: 0 4px 0 0;
+    scrollbar-color: var(--daisy-journal-pink) #171016;
+    scrollbar-width: thin;
+}
+
+.daisy-journal .journal-sidebar :is(.directory-item, .page) {
+    margin: 0 0 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    transition: border-color 120ms ease, background-color 120ms ease, transform 120ms ease;
+}
+
+.daisy-journal .journal-sidebar :is(.directory-item, .page):hover {
+    border-color: rgba(255, 255, 255, 0.48);
+    background: rgba(255, 255, 255, 0.13);
+    transform: translateX(2px);
+}
+
+.daisy-journal .journal-sidebar :is(.directory-item.active, .page.active) {
+    border-color: var(--daisy-journal-pink);
+    background: var(--daisy-journal-pink);
+    box-shadow: 4px 4px 0 #171016;
+}
+
+.daisy-journal .journal-sidebar :is(.page-heading, .page-title, .entry-name, a) {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daisy-journal .journal-sidebar :is(.page-number, .page-index) {
+    color: rgba(255, 255, 255, 0.65);
+    font-variant-numeric: tabular-nums;
+}
+
+.daisy-journal .journal-sidebar :is(.action-buttons, footer) {
+    gap: 8px;
+    margin: 12px -2px -2px;
+}
+
+.daisy-journal .journal-sidebar button {
+    min-height: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 4px;
+    background: #171016;
+    color: #fff;
+    font-weight: 800;
+}
+
+.daisy-journal .journal-sidebar button:hover {
+    border-color: #fff;
+    background: var(--daisy-journal-pink);
+}
+
+.daisy-journal .journal-entry-content > :is(.journal-header, header:first-child) {
+    margin: 0;
+    padding: 16px clamp(18px, 4vw, 44px) 12px;
+    border-bottom: 1px solid rgba(23, 16, 22, 0.15);
+    background: rgba(255, 255, 255, 0.66);
+}
+
+.daisy-journal .journal-entry-content > :is(.journal-header, header:first-child) :is(input, .title) {
+    min-height: 48px;
+    margin: 0;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--daisy-journal-violet);
+    color: #fff;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.daisy-journal .journal-page-content {
+    padding: 9px !important;
+    overflow: auto;
+    scrollbar-color: var(--daisy-journal-pink) rgba(23, 16, 22, 0.12);
+    scrollbar-width: thin;
+}
+
+.daisy-journal .journal-entry-page {
+    width: min(100%, 920px);
+    margin: 0 auto 28px;
+    padding: clamp(22px, 4vw, 46px);
+    border: 1px solid rgba(23, 16, 22, 0.18);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 10px 30px rgba(23, 16, 22, 0.12);
+}
+
+.daisy-journal :is(.journal-entry-page, .journal-page-content) > header {
+    position: relative;
+}
+
+.daisy-journal :is(.journal-entry-page, .journal-page-content) > header .edit-page {
+    border: 0;
+    border-radius: 4px;
+    background: var(--daisy-journal-violet);
+    color: #fff;
+}
+
+.daisy-journal :is(.journal-entry-page, .journal-page-content) > header .edit-page:hover {
+    background: var(--daisy-journal-pink);
+}
+
+.daisy-journal :is(prose-mirror, .prosemirror, .editor-container) {
+    min-height: 180px;
+    border: 1px solid rgba(23, 16, 22, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.86);
+}
+
+.daisy-journal :is(prose-mirror, .prosemirror) :is(menu, .editor-menu, .menu) {
+    border-bottom: 1px solid rgba(23, 16, 22, 0.2);
+    background: #171016;
+    color: #fff;
+}
+
+.daisy-journal :is(prose-mirror, .prosemirror) :is(menu, .editor-menu, .menu) :is(button, select) {
+    color: inherit;
+}
+
+.daisy-journal :is(button, input, select, [tabindex]):focus-visible {
+    outline: 3px solid #00a9ff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff;
+}

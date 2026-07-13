@@ -1,0 +1,623 @@
+{
+  "DAISY": {
+    "Name": "Daisy Chainsaw",
+    "Description": "A game of magical champions, friendship, spectacular battles, and chainsaws.",
+    "Actor": {
+      "Label": "Actor",
+      "Type": {
+        "Heroine": "Magical Champion",
+        "Enemy": "Enemy",
+        "Team": "Team"
+      }
+    },
+    "Item": {
+      "Label": "Rules Item",
+      "Type": {
+        "Weapon": "Weapon",
+        "Gimmick": "Quirk",
+        "Ability": "Ability",
+        "Spell": "Spell",
+        "Condition": "Status Effect",
+        "EnemyTrait": "Enemy Trait"
+      }
+    },
+    "Sheets": {
+      "HeroineClassic": "Daisy Chainsaw - Classic Magical Champion Sheet",
+      "Heroine98": "Daisy Chainsaw - Magical Champion Sheet 98'",
+      "Enemy": "Daisy Chainsaw - Enemy Sheet",
+      "Team": "Daisy Chainsaw - Team Sheet",
+      "Item": "Daisy Chainsaw - Rules Item",
+      "RuleBrowser": "Daisy Chainsaw - Rule Browser",
+      "JournalClassic": "Daisy Chainsaw - Classic Journal",
+      "Journal98": "Daisy Chainsaw - Journal 98'"
+    },
+    "Settings": {
+      "SchemaVersion": {
+        "Name": "Data Schema Version",
+        "Hint": "Internal version of the world's data structure."
+      },
+      "BurnoutAbilities": {
+        "Name": "Ability Burnout",
+        "Hint": "The book is inconsistent: the specific rule on page 65 adds BP for every spell and only Harm abilities.",
+        "Choice": {
+          "DamageOnly": "Harm abilities only (page 65)",
+          "All": "All abilities (page 63)"
+        }
+      },
+      "LevelTwoUnlock": {
+        "Name": "Unlock Tier Two Abilities",
+        "Hint": "The advancement table grants them at Team Power Level 4, while the character creation text says Power Level 5.",
+        "Choice": {
+          "Level4": "Team Power Level 4 (advancement table)",
+          "Level5": "Team Power Level 5 (rules text)"
+        }
+      },
+      "PopcornInitiative": {
+        "Name": "Choose the Next Combatant",
+        "Hint": "Use the initiative system from the book, where the combatant ending their turn chooses who acts next."
+      },
+      "ReduceMotion": {
+        "Name": "Reduce Sheet Motion",
+        "Hint": "Disable most decorative motion and transitions on system sheets."
+      },
+      "InitiativeRule": {
+        "Name": "Initiative rule",
+        "Hint": "The original counts hits against the highest enemy Initiative; the Russian translation mistakenly uses the MC's Focus.",
+        "Original": "English original: enemy Initiative",
+        "Russian": "Russian translation: Focus"
+      },
+      "WeaponStatRule": {
+        "Name": "Weapon statistics",
+        "Hint": "The original fixes a weapon's first statistic to Main and its alternate to Offhand; the Russian translation allows either.",
+        "Original": "English original: fixed statistics",
+        "Russian": "Russian translation: free choice"
+      },
+      "ProtectOddHarm": {
+        "Name": "Odd Harm while Protecting",
+        "Hint": "Who takes the extra Harm when an odd total cannot be split evenly.",
+        "Target": "Protected target",
+        "Protector": "Protector"
+      },
+      "AutoDefeatEnemies": {
+        "Name": "Automatically defeat enemies",
+        "Hint": "Mark an enemy defeated in the combat tracker when its HP reaches 0."
+      },
+      "TrackActions": {
+        "Name": "Track actions",
+        "Hint": "Track the active combatant's two actions and prevent overspending."
+      }
+    },
+    "Common": {
+      "Name": "Name",
+      "Description": "Description",
+      "Notes": "Notes",
+      "Level": "Tier",
+      "PowerLevel": "Power Level",
+      "PowerLevelShort": "PL",
+      "Source": "Source",
+      "SourcePage": "Source Page",
+      "PageShort": "p.",
+      "Slug": "Identifier",
+      "Category": "Category",
+      "Type": "Type",
+      "Duration": "Duration",
+      "Area": "Area",
+      "Range": "Range",
+      "Round": "Round",
+      "Rounds": "Rounds",
+      "Turn": "Turn",
+      "Turns": "Turns",
+      "OneTurn": "1 turn",
+      "Action": "Action",
+      "Actions": "Actions",
+      "Requirements": "Requirements",
+      "Timing": "Timing",
+      "None": "None",
+      "Empty": "Empty",
+      "Unknown": "Unknown",
+      "Of": "of",
+      "For": "For",
+      "Yes": "Yes",
+      "No": "No"
+    },
+    "Actions": {
+      "Add": "Add",
+      "Remove": "Remove",
+      "Create": "Create",
+      "Edit": "Edit",
+      "Save": "Save",
+      "Cancel": "Cancel",
+      "Close": "Close",
+      "Open": "Open",
+      "Use": "Use",
+      "Roll": "Roll",
+      "RollCheck": "Check",
+      "Search": "Search",
+      "Select": "Select",
+      "Clear": "Clear",
+      "Browse": "Open Rule Browser",
+      "ChoosePortrait": "Choose Portrait",
+      "ChooseImage": "Choose Image",
+      "Increase": "Increase",
+      "Decrease": "Decrease",
+      "AddToSheet": "Add to Sheet",
+      "RemoveFromSheet": "Remove from Sheet",
+      "Minimize": "Minimize Window",
+      "Maximize": "Restore Window",
+      "CloseWindow": "Close Window"
+    },
+    "Attributes": {
+      "Title": "Statistics",
+      "Charm": "Charm",
+      "Focus": "Focus",
+      "Heart": "Heart",
+      "Power": "Power",
+      "Primary": "Primary",
+      "Secondary": "Secondary",
+      "Initiative": "Initiative",
+      "Speed": "Speed",
+      "SavingThrow": "Saving Throw",
+      "Roll": "Roll Check: {attribute}"
+    },
+    "Resources": {
+      "Title": "Resources",
+      "HarmPool": "Harm Pool",
+      "HarmPoolShort": "HP",
+      "Harm": "Harm",
+      "BurnoutPool": "Burnout Pool",
+      "BurnoutPoolShort": "BP",
+      "Burnout": "Burnout",
+      "Current": "Current",
+      "Maximum": "Maximum",
+      "IncreaseHarm": "Increase Harm",
+      "DecreaseHarm": "Decrease Harm",
+      "IncreaseBurnout": "Increase Burnout",
+      "DecreaseBurnout": "Decrease Burnout",
+      "ScarUsed": "Scar Escape Used"
+    },
+    "Weapons": {
+      "Title": "Weapons",
+      "Main": "Main",
+      "Offhand": "Offhand",
+      "MainWeapon": "Main Weapon",
+      "OffhandWeapon": "Offhand Weapon",
+      "MainParameter": "Main Weapon Statistic",
+      "OffhandParameter": "Offhand Weapon Statistic",
+      "MainQuirk": "Main Weapon Quirk",
+      "OffhandQuirk": "Offhand Weapon Quirk",
+      "Weapon": "Weapon",
+      "Quirk": "Quirk",
+      "Quirks": "Quirks",
+      "Parameters": "Statistics",
+      "Range": {
+        "Close": "Melee",
+        "Ranged": "Ranged"
+      }
+    },
+    "Ability": {
+      "Title": "Ability",
+      "Plural": "Abilities",
+      "Passive": "Passive Ability",
+      "AddSlot": "Add an ability to slot {slot}",
+      "Remove": "Remove ability {name}",
+      "Category": {
+        "Harm": "Harm",
+        "Defense": "Defense",
+        "Familiar": "Familiar",
+        "Passive": "Passive",
+        "Utility": "Utility"
+      }
+    },
+    "Spell": {
+      "Title": "Spell",
+      "Plural": "Spells",
+      "AddSlot": "Add a spell to slot {slot}",
+      "Remove": "Remove spell {name}"
+    },
+    "Trait": {
+      "Title": "Trait",
+      "Plural": "Traits",
+      "Name": "Trait Name",
+      "Note": "Trait Description",
+      "New": "New Trait"
+    },
+    "Combat": {
+      "Title": "Combat",
+      "Attack": "Attack",
+      "BasicAttack": "Basic Attack",
+      "Save": "Saving Throw",
+      "Initiative": "Initiative",
+      "Check": "Check",
+      "TeamCheck": "Team Check",
+      "Resistance": "Resist: {status}",
+      "Move": "Move",
+      "Maneuver": "Maneuver",
+      "Status": "Status Effect",
+      "Affliction": "Affliction",
+      "NextCombatant": "Who acts next?",
+      "EnemyFirstTurn": "Enemy's First Turn",
+      "NewRoundFirstTurn": "First Turn of the New Round",
+      "PassTurn": "Pass the Turn",
+      "ChooseNext": "Choose the next combatant",
+      "InitiativeTie": "The character with the higher Focus wins a tie.",
+      "InitiativeRussianRule": "Hits are counted against Focus.",
+      "InitiativeOriginalRule": "Hits are counted against the highest enemy Initiative ({initiative}).",
+      "HarmPerSuccess": "Each hit inflicts 1 Harm{target}.",
+      "TargetNamed": " to {name}",
+      "RecoverAfterCombat": "Recover 1 HP after combat",
+      "MoveDistance": "Move {speed} increments of 5 feet, {distance} feet total.",
+      "ActionsRemaining": "Actions remaining"
+    },
+    "Maneuver": {
+      "Title": "Maneuvers",
+      "Assist": {
+        "Name": "Assist",
+        "Description": "An ally gains one additional die on their next roll."
+      },
+      "Bolster": {
+        "Name": "Bolster",
+        "Description": "The next attack against you suffers -1 Primary."
+      },
+      "Invoke": {
+        "Name": "Invoke",
+        "Description": "+1 die on your next roll before the end of your next turn; stacks twice."
+      },
+      "JuryRig": {
+        "Name": "Jury-Rig",
+        "Description": "Add a temporary Quirk to a weapon until you are reduced to half HP."
+      },
+      "Protect": {
+        "Name": "Protect",
+        "Description": "Attacks against an ally miss on 5 and 6, and Harm is split evenly."
+      }
+    },
+    "Status": {
+      "Title": "Status Effects",
+      "None": "No status effects.",
+      "Kind": {
+        "Maneuver": "Maneuver",
+        "Affliction": "Affliction",
+        "Special": "Special Status"
+      },
+      "Remove": "Remove {name}",
+      "help": {
+        "Name": "Assist",
+        "Description": "One additional die on the next roll."
+      },
+      "empowered": {
+        "Name": "Bolster",
+        "Description": "The next attack against the target suffers -1 Primary."
+      },
+      "invocation": {
+        "Name": "Invoke",
+        "Description": "+1 die on the next roll before the end of the next turn; maximum 2."
+      },
+      "improvised": {
+        "Name": "Jury-Rig",
+        "Description": "A temporary additional Quirk while HP remains above half."
+      },
+      "cover": {
+        "Name": "Protect",
+        "Description": "Attacks against an ally miss on 5 and 6, and Harm is split evenly."
+      },
+      "marked": {
+        "Name": "Marked",
+        "Description": "One failed attack die becomes a hit for each Mark."
+      },
+      "burning": {
+        "Name": "Aflame",
+        "Description": "Suffers Harm equal to the source's PL and cannot cast spells."
+      },
+      "charmed": {
+        "Name": "Bewitched",
+        "Description": "Cannot take offensive actions against the source."
+      },
+      "bleeding": {
+        "Name": "Bleed",
+        "Description": "Suffers 1 Harm at the beginning of the round."
+      },
+      "broken": {
+        "Name": "Crushed",
+        "Description": "Cannot use the specified weapon, ability, or body part."
+      },
+      "entangled": {
+        "Name": "Entangled",
+        "Description": "-2 Primary on attacks; attacks against the target gain +2 Secondary."
+      },
+      "poisoned": {
+        "Name": "Poisoned",
+        "Description": "-1 Primary on attacks and Harm abilities."
+      },
+      "stunned": {
+        "Name": "Stunned",
+        "Description": "Cannot take actions."
+      },
+      "taunted": {
+        "Name": "Taunted",
+        "Description": "Must attack the source or move into range to do so."
+      },
+      "beyond": {
+        "Name": "Pushing Your Limits",
+        "Description": "For 3 turns: -2 Primary on attacks against the champion, +2 to their Primary, and no Burnout."
+      },
+      "unconscious": {
+        "Name": "Unconscious",
+        "Description": "Must receive Assist within three turns or the champion dies.",
+        "Expired": "The champion has died because Assist was not provided in time."
+      }
+    },
+    "PushLimits": {
+      "Title": "Push Your Limits",
+      "Action": "Push Your Limits",
+      "Requirements": "Requirements",
+      "Requirement": {
+        "Outnumbered": "Outnumbered",
+        "AlmostDead": "Almost Dead",
+        "BurntOut": "Burnt Out"
+      },
+      "Effect": {
+        "HarderToHit": "Harder to Hit",
+        "HitHarder": "Hit Harder",
+        "SecondWind": "Second Wind"
+      },
+      "NotEnoughRequirements": "At least two requirements must be met to Push Your Limits.",
+      "Extend": "Forfeit the effect and extend Push Your Limits by 1 turn"
+    },
+    "Heroine": {
+      "Label": "Magical Champion",
+      "ClassicSheet": "Classic Magical Champion Sheet",
+      "Sheet98": "Windows 98 Magical Champion Sheet",
+      "Name": "Champion Name",
+      "Team": "Team",
+      "Portrait": "Portrait {name}.jpg",
+      "PortraitLabel": "Portrait",
+      "PersonalData": "Personal_Data",
+      "CharacterSheetShort": "Character Sheet",
+      "ChoosePortrait": "Choose Champion Portrait",
+      "Actions": "Champion Actions",
+      "Biography": "Biography",
+      "Traits": "Traits",
+      "Abilities": "Abilities",
+      "Spells": "Spells"
+    },
+    "Team": {
+      "Label": "Magical Champion Team",
+      "Name": "Team Name",
+      "ChooseEmblem": "Choose Team Emblem",
+      "Actions": "Team Actions",
+      "Members": "Champions",
+      "NoMembers": "Assign this Team on champion sheets and its members will appear here.",
+      "Mascot": {
+        "Title": "Mascot",
+        "Appearance": "Look",
+        "Character": "Attitude",
+        "Origin": "Origin",
+        "Goal": "Purpose"
+      },
+      "Notes": "Team Notes",
+      "Unlinked": "No Team",
+      "NewEpisode": "New Episode",
+      "NewEpisodeConfirm": "Reset the Team's BP and each linked MC's once-per-Episode scar save?"
+    },
+    "Enemy": {
+      "Label": "Enemy",
+      "Name": "Enemy Name",
+      "ChooseImage": "Choose Enemy Image",
+      "Boss": "Boss",
+      "UseLevelDefaults": "Use Power Level Statistics",
+      "Statistics": "Enemy Statistics",
+      "Rolls": "Enemy Rolls",
+      "Traits": "Traits",
+      "AddTrait": "Add Trait",
+      "RemoveTrait": "Remove {name}",
+      "NoTraits": "Drag a trait from the Rule Browser.",
+      "NoSpells": "No spells."
+    },
+    "ItemSheet": {
+      "Title": "Rules Item",
+      "Image": "Image",
+      "Parameters": "Statistics",
+      "Weapon": "Weapon",
+      "PassiveAbility": "Passive Ability",
+      "Use": "Use",
+      "ParametersPlaceholder": "charm, focus",
+      "Activation": {
+        "Action": "Action",
+        "Passive": "Passive",
+        "Free": "Free action"
+      },
+      "Subtype": {
+        "Gimmick": "Quirk",
+        "Trait": "Weapon trait"
+      }
+    },
+    "RuleBrowser": {
+      "Title": "Rule Browser",
+      "ForActor": "For: {name}",
+      "SearchPlaceholder": "Search by name or text...",
+      "Sections": "Rule Browser Sections",
+      "Group": {
+        "Rules": "Game Rules",
+        "Abilities": "Abilities",
+        "Spells": "Spells",
+        "Weapons": "Weapons",
+        "Gimmicks": "Quirks",
+        "EnemyTraits": "Enemy Traits",
+        "Maneuvers": "Maneuvers",
+        "Statuses": "Status Effects",
+        "Tables": "Tables"
+      },
+      "EntryLevel": "TIER {level}",
+      "SourcePage": "p. {page}",
+      "EmptyGroup": "There are no entries in this section yet.",
+      "NoResults": "No results found.",
+      "CatalogUnavailable": "The rules catalog has not loaded yet. Sheets will continue to work and entries will appear once the catalog is available."
+    },
+    "Chat": {
+      "Check": {
+        "Title": "{label}",
+        "Pool": "Pool: {pool}",
+        "Threshold": "Target: {threshold}",
+        "Results": "Results",
+        "Successes": "Hits: {successes}",
+        "Exploded": "Exploding Dice: {count}",
+        "ConvertedFailures": "Misses Converted to Hits: {count}",
+        "Success": "Success",
+        "Failure": "Failure",
+        "Details": "Details"
+      },
+      "Notice": {
+        "Title": "Notice"
+      },
+      "Attack": {
+        "Empowered": "Target Bolstered: -1 Primary",
+        "TargetBeyond": "Target Is Pushing Their Limits: -2 Primary",
+        "TargetEntangled": "Target Entangled: +2 Secondary",
+        "Protected": "Protect: 5 and 6 miss",
+        "Marked": "Marked: {count} missed dice become hits",
+        "Elusive": "Elusive target: {penalty} Primary"
+      },
+      "Roll": {
+        "Help": "Assist: +1 die",
+        "Invocation": "Invoke: +{count} to the dice pool"
+      },
+      "Burnout": {
+        "Title": "Burnout",
+        "Value": "{value}/{maximum}",
+        "Roll": "1d6 ({die}) + overflow ({overflow}) = {total}.",
+        "WithinLimit": "The Burnout Pool was not exceeded.",
+        "ActionFailed": "The action fails and the champion suffers 1 Harm.",
+        "ActionSucceeded": "The action does not fail."
+      },
+      "Unconscious": {
+        "Title": "Unconscious",
+        "Content": "The champion must receive Assist within three turns or die. After receiving Assist, they recover to 1 HP when combat ends."
+      },
+      "Assisted": {
+        "Title": "Assist Received",
+        "Content": "The champion remains unconscious and recovers to 1 HP when combat ends."
+      },
+      "Death": {
+        "Title": "The Champion Dies",
+        "Content": "Three turns passed without the Assist maneuver."
+      },
+      "Scar": {
+        "Title": "Killing Blow Avoided",
+        "Content": "All Harm is negated. The champion gains the permanent scar \"{scar}\" and immediately Pushes Their Limits."
+      },
+      "PushLimits": {
+        "Title": "Push Your Limits",
+        "Content": "For 3 turns: attacks against the champion suffer -2 Primary, their attacks gain +2 Primary, and abilities add no BP."
+      },
+      "ShiftToRepeat": "Hold Shift to apply again.",
+      "TableRoll": "Roll result: {value}.",
+      "Successes": "Hits",
+      "Target": "Target",
+      "DiceResults": "Dice results",
+      "NoDice": "No dice",
+      "Pool": "Pool",
+      "Threshold": "Threshold",
+      "Explosions": "Explosions",
+      "ApplyHarm": "Apply Harm"
+    },
+    "Dialog": {
+      "Scar": {
+        "Title": "Avoid the killing blow?",
+        "Content": "{name} may negate all of this Harm, gain a permanent scar, and immediately Push Their Limits.",
+        "Accept": "Take the scar",
+        "Decline": "Take the Harm"
+      }
+    },
+    "Scar": {
+      "Default": "New Scar",
+      "Permanent": "Permanent Scar",
+      "Note": "Permanent scar; visible after transforming."
+    },
+    "Journal": {
+      "Title": "Daisy Chainsaw Rules",
+      "TableOfContents": "Table of Contents",
+      "Section": {
+        "CharacterCreation": "Character Creation",
+        "Advancement": "Advancement",
+        "Weapons": "Weapons",
+        "Abilities": "Abilities",
+        "Spells": "Spells",
+        "Team": "Team",
+        "Combat": "Combat",
+        "Enemies": "Enemies",
+        "GMGuide": "GM Guide"
+      },
+      "Style": {
+        "Rule": "Rule",
+        "Example": "Example",
+        "Note": "Note",
+        "Tip": "Tip",
+        "Warning": "Important",
+        "ReadAloud": "Read Aloud",
+        "Reference": "Rules Reference"
+      },
+      "OpenRuleBrowser": "Open Rule Browser"
+    },
+    "Notifications": {
+      "RuleBrowserActionFailed": "The Rule Browser action could not be completed.",
+      "SheetActionFailed": "The sheet action could not be completed.",
+      "SelectTokenOrOwnedItem": "Select a token or open an item owned by an Actor.",
+      "UseItemFromActorSheet": "This item must be used from a character sheet.",
+      "CannotCastWhileAflame": "The champion is Aflame and cannot cast spells.",
+      "MigrationComplete": "The Daisy Chainsaw world data has been updated.",
+      "MigrationFailed": "The Daisy Chainsaw world data could not be updated.",
+      "CatalogUnavailable": "The rules catalog is unavailable; sheets are using empty lists.",
+      "TargetRequired": "Choose a target for “{name}”.",
+      "AlreadyApplied": "The effect was already applied to {name}. Hold Shift to repeat it.",
+      "EpisodeReset": "New Episode resources have been reset.",
+      "NotActorsTurn": "It is another combatant's turn.",
+      "NotEnoughActions": "Not enough actions for “{label}”: {cost} required, {remaining} remaining.",
+      "CannotAct": "This combatant cannot take actions."
+    },
+    "Errors": {
+      "UnknownStatus": "Unknown Daisy Chainsaw status: {id}",
+      "InvalidActorType": "This action is not available for an Actor of type {type}.",
+      "InvalidItemType": "Unknown rules item type: {type}.",
+      "NoActor": "No Actor is selected.",
+      "NoTarget": "No target is selected.",
+      "NoPermission": "You do not have permission to perform this action.",
+      "AttributeRange": "{attribute} must be an integer from 1 to 6.",
+      "AttributeOverspent": "{spent} statistic points were allocated, but only {budget} are available.",
+      "AttributePointsRemaining": "{remaining} statistic points remain to be allocated.",
+      "InvalidMainWeapon": "A valid Main weapon has not been selected.",
+      "InvalidOffhandWeapon": "A valid Offhand weapon has not been selected.",
+      "UnsupportedMainParameter": "The Primary statistic is not supported by the Main weapon.",
+      "UnsupportedOffhandParameter": "The Secondary statistic is not supported by the Offhand weapon.",
+      "ParametersMustDiffer": "Primary and Secondary must be different statistics.",
+      "QuirkSelection": "Your permanent Quirk comes from the Main weapon; a second is available only when both weapons are the same.",
+      "MainQuirkMissing": "No permanent Main weapon Quirk has been selected.",
+      "TooManySelections": "{selected} abilities and spells were selected, but only {available} slots are available.",
+      "SelectionSlotsRemaining": "{remaining} ability or spell slots remain to be filled.",
+      "SpellLimit": "The number of spells exceeds the base Charm - 1 limit; check slot exchanges during advancement.",
+      "AbilityLevelLocked": "One or more abilities are above the available tier {level}.",
+      "RenderFailed": "The system interface could not be rendered.",
+      "RollFailed": "The roll could not be completed.",
+      "TableNotFound": "The rules table could not be found.",
+      "EmptyTable": "The table has no results.",
+      "MissingStatus": "No status was specified.",
+      "UnknownChatAction": "Unknown chat-card action: {action}.",
+      "ChatActionFailed": "The chat-card action could not be applied.",
+      "RuleNotFound": "The rules entry could not be found."
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "heroine": "Main Character",
+      "enemy": "Enemy",
+      "team": "Team"
+    },
+    "Item": {
+      "weapon": "Weapon",
+      "gimmick": "Quirk",
+      "ability": "Ability",
+      "spell": "Spell",
+      "condition": "Status",
+      "enemyTrait": "Enemy Trait"
+    }
+  }
+}

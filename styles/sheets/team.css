@@ -1,0 +1,171 @@
+/* Team actor sheet. */
+
+.daisy-team-panel {
+    --daisy-panel-accent: #8b2cff;
+    display: grid;
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(139, 44, 255, 0.09), transparent 38%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(19, 13, 18, 0.035) 31px 32px),
+    var(--daisy-paper);
+}
+
+.application.daisy-chainsaw.daisy-team-sheet .daisy-sheet-window-content {
+    overflow: hidden !important;
+}
+
+.daisy-team-panel .daisy-panel-body {
+    min-height: 0;
+    align-content: start;
+    grid-auto-rows: max-content;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: var(--daisy-pink) var(--daisy-paper-deep);
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+}
+
+.daisy-team-panel .daisy-panel-header {
+    background: linear-gradient(105deg, rgba(139, 44, 255, 0.25), transparent 45%),
+    var(--daisy-ink);
+}
+
+.daisy-team-panel .daisy-action-bar button {
+    display: inline-flex;
+    flex: 1 1 135px;
+    min-width: 0;
+    height: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 6px 10px;
+    line-height: 1.15;
+}
+
+.daisy-team-panel .daisy-action-bar button > i {
+    flex: 0 0 auto;
+    margin-right: 0;
+}
+
+.daisy-team-panel .daisy-action-bar button > span {
+    min-width: 0;
+    text-align: center;
+    white-space: normal;
+}
+
+.daisy-member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 10px;
+    padding: 11px;
+}
+
+.daisy-members-panel > header > span {
+    display: grid;
+    min-width: 2em;
+    height: 2em;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--daisy-pink);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.daisy-member-card {
+    display: grid;
+    min-height: 78px;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 11px;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid var(--daisy-line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--daisy-ink);
+    text-align: left;
+    cursor: pointer;
+}
+
+.daisy-member-card:hover {
+    border-color: var(--daisy-pink);
+    background: var(--daisy-pink-wash);
+}
+
+.daisy-member-card img {
+    width: 56px;
+    height: 56px;
+    border: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.daisy-member-card div {
+    display: grid;
+    min-width: 0;
+    gap: 3px;
+}
+
+.daisy-member-card strong {
+    overflow: hidden;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.daisy-member-card small {
+    color: var(--daisy-muted);
+    font-size: 0.8rem;
+}
+
+.daisy-mascot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 11px;
+}
+
+.daisy-mascot-panel {
+    border-top-color: color-mix(in srgb, var(--daisy-pink) 55%, var(--daisy-line));
+}
+
+.daisy-mascot-grid label {
+    display: grid;
+    gap: 5px;
+    color: var(--daisy-pink-dark);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.daisy-mascot-grid textarea {
+    min-height: 78px;
+    color: var(--daisy-ink);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.daisy-mascot-rolls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 11px 11px;
+}
+
+.daisy-mascot-rolls button {
+    flex: 1 1 12rem;
+}
+
+.daisy-team-burnout output {
+    min-width: 4.6em;
+    font-weight: 800;
+    text-align: center;
+}

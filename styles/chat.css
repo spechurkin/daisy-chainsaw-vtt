@@ -1,0 +1,310 @@
+/* ------------------------------------------------------------------------- */
+/* Chat cards                                                                */
+/* ------------------------------------------------------------------------- */
+
+.chat-message:has([data-daisy-message-card]) {
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #130d12;
+    border-radius: 7px;
+    background: #f4f0f2;
+    box-shadow: 0 5px 14px rgba(19, 13, 18, 0.2);
+}
+
+.chat-message:has([data-daisy-message-card]) .message-header {
+    min-height: 24px;
+    justify-content: flex-end;
+    padding: 4px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: #171016;
+    color: #fff;
+}
+
+.chat-message:has([data-daisy-message-card]) .message-header .message-sender {
+    display: none;
+}
+
+.chat-message:has([data-daisy-message-card]) .message-header :is(.message-metadata, .message-timestamp, a, button, i) {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.chat-message:has([data-daisy-message-card]) .message-content {
+    margin: 0;
+    padding: 0;
+}
+
+.daisy-chat-card {
+    --daisy-chat-accent: #f5004f;
+    --daisy-chat-accent-dark: #a90038;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--daisy-chat-accent) 9%, transparent), transparent 45%),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(19, 13, 18, 0.035) 31px 32px),
+        #f4f0f2;
+    color: #130d12;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+}
+
+.daisy-chat-card.daisy-chat-actor-team {
+    --daisy-chat-accent: #7c3aed;
+    --daisy-chat-accent-dark: #4c1d95;
+}
+
+.daisy-chat-card.daisy-chat-actor-enemy {
+    --daisy-chat-accent: #dc2626;
+    --daisy-chat-accent-dark: #7f1d1d;
+}
+
+.daisy-chat-header {
+    display: grid;
+    min-height: 72px;
+    grid-template-columns: 54px minmax(0, 1fr) 54px;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-bottom: 4px solid var(--daisy-chat-accent);
+    background: #171016;
+    color: #fff;
+}
+
+.daisy-chat-header > img {
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 0;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background: #33263a;
+    object-fit: cover;
+    box-shadow: 3px 3px 0 var(--daisy-chat-accent);
+}
+
+.daisy-chat-header > div {
+    min-width: 0;
+}
+
+.daisy-chat-kicker,
+.daisy-chat-header h3 {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.daisy-chat-kicker {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.daisy-chat-header h3 {
+    color: #fff;
+    font-size: 1.15rem;
+    line-height: 1.15;
+}
+
+.daisy-chat-outcome {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    align-content: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--daisy-chat-accent-dark);
+    color: #fff;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--daisy-chat-accent) 52%, transparent);
+    font-variant-numeric: tabular-nums;
+}
+
+.daisy-check-card.is-success .daisy-chat-outcome {
+    background: #166534;
+}
+
+.daisy-check-card.is-failure .daisy-chat-outcome {
+    background: #991b1b;
+}
+
+.daisy-chat-outcome strong {
+    font-size: 1.35rem;
+    line-height: 0.9;
+}
+
+.daisy-chat-outcome small {
+    max-width: 45px;
+    overflow: hidden;
+    font-size: 0.52rem;
+    font-weight: 700;
+    line-height: 1;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+.daisy-chat-target {
+    margin: 10px 10px 0;
+    padding: 6px 8px;
+    border-left: 4px solid var(--daisy-chat-accent);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.daisy-chat-target i {
+    margin-right: 5px;
+    color: var(--daisy-chat-accent-dark);
+}
+
+.daisy-dice-results {
+    display: flex;
+    min-height: 62px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 10px 8px;
+}
+
+.daisy-die {
+    position: relative;
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 2px solid #130d12;
+    border-radius: 5px;
+    background: #fff;
+    color: #130d12;
+    font-size: 1.25rem;
+    font-weight: 800;
+    box-shadow: 3px 3px 0 rgba(19, 13, 18, 0.2);
+}
+
+.daisy-die.is-success {
+    border-color: var(--daisy-chat-accent-dark);
+    background: var(--daisy-chat-accent);
+    color: #fff;
+}
+
+.daisy-die.is-failure {
+    background: #ded7dc;
+    color: #6c6069;
+}
+
+.daisy-die.is-exploded::after {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    display: grid;
+    width: 17px;
+    height: 17px;
+    place-items: center;
+    border-radius: 50%;
+    background: #171016;
+    color: #fff;
+    font-family: "Font Awesome 6 Free";
+    font-size: 0.58rem;
+    font-weight: 900;
+    content: "\f005";
+}
+
+.daisy-die.is-converted {
+    outline: 3px solid #7c3aed;
+    outline-offset: 1px;
+}
+
+.daisy-no-dice {
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed rgba(19, 13, 18, 0.35);
+    border-radius: 4px;
+    color: #6c6069;
+    text-align: center;
+}
+
+.daisy-chat-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 4px 10px 10px;
+}
+
+.daisy-chat-summary > div {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    padding: 7px 3px;
+    border: 1px solid rgba(19, 13, 18, 0.24);
+    background: rgba(255, 255, 255, 0.72);
+    text-align: center;
+}
+
+.daisy-chat-summary > div:nth-child(n + 4) {
+    grid-column: 1 / -1;
+}
+
+.daisy-chat-summary :is(dt, dd) {
+    min-width: 0;
+    margin: 0;
+}
+
+.daisy-chat-summary dt {
+    overflow: hidden;
+    color: #6c6069;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.daisy-chat-summary dd {
+    color: #130d12;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.daisy-chat-details {
+    margin: 0 10px 10px;
+    padding: 8px 9px;
+    border-left: 4px solid var(--daisy-chat-accent);
+    background: rgba(255, 255, 255, 0.7);
+    color: #33263a;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.daisy-chat-content {
+    padding: 11px;
+    line-height: 1.4;
+}
+
+.daisy-chat-actions {
+    display: flex;
+    gap: 6px;
+    padding: 9px 10px 10px;
+    border-top: 1px solid rgba(19, 13, 18, 0.18);
+    background: rgba(19, 13, 18, 0.06);
+}
+
+.daisy-chat-actions button {
+    min-height: 34px;
+    flex: 1;
+    padding: 5px 8px;
+    border: 1px solid var(--daisy-chat-accent-dark);
+    border-radius: 4px;
+    background: var(--daisy-chat-accent-dark);
+    color: #fff;
+    font: 700 0.78rem/1.1 "Daisy Iosevka", Iosevka, monospace;
+}
+
+.daisy-chat-actions button:hover:not(:disabled) {
+    background: var(--daisy-chat-accent);
+}
+
+.daisy-chat-actions button:disabled {
+    filter: grayscale(1);
+    opacity: 0.5;
+}

@@ -1,0 +1,237 @@
+/* Monochrome 98' journal, matching the alternate heroine sheet. */
+
+.application.daisy-journal-98 {
+    --daisy-journal-ink: #050505;
+    --daisy-journal-paper: #fff;
+    --daisy-journal-paper-bright: #fff;
+    --daisy-journal-pink: #050505;
+    --daisy-journal-violet: #050505;
+    border: 6px solid #050505;
+    border-radius: 0;
+    background: #050505;
+    box-shadow: 10px 10px 0 rgba(5, 5, 5, 0.3);
+}
+
+.application.daisy-journal-98 > .window-header,
+.application.daisy-journal-98 .window-header {
+    min-height: 44px;
+    border-bottom: 4px solid #fff;
+    background: #050505;
+}
+
+.application.daisy-journal-98 .window-header .window-title {
+    font-weight: 400;
+}
+
+.application.daisy-journal-98 .window-header button,
+.application.daisy-journal-98 .window-header button:hover {
+    border: 2px solid #fff;
+    border-radius: 0;
+    background: #050505;
+    color: #fff;
+}
+
+.application.daisy-journal-98 > .window-content,
+.application.daisy-journal-98 .window-content {
+    border: 4px solid #050505;
+    background: #fff;
+}
+
+.daisy-journal-98 .journal-sidebar {
+    padding: 10px;
+    border: 0;
+    border-right: 5px solid #050505;
+    background: #fff;
+    color: #050505;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.journal-header, header) {
+    margin: -10px -10px 10px;
+    padding: 8px 10px;
+    border: 0;
+    border-bottom: 5px solid #050505;
+    background: #050505;
+    color: #fff;
+}
+
+.daisy-journal-98 .journal-sidebar :is(input, select) {
+    border: 3px solid #050505;
+    border-radius: 0;
+    background: #fff;
+    color: #050505;
+}
+
+.daisy-journal-98 .journal-sidebar input::placeholder {
+    color: #5d5d5d;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.pages-list, .directory-list) {
+    scrollbar-color: #050505 #fff;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.directory-item, .page) {
+    margin-bottom: 6px;
+    border: 3px solid #050505;
+    border-radius: 0;
+    background: #fff;
+    color: #050505;
+    transition: none;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.directory-item, .page):hover {
+    border-color: #050505;
+    background: #e8e8e8;
+    transform: none;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.directory-item.active, .page.active) {
+    border-color: #050505;
+    background: #050505;
+    color: #fff;
+    box-shadow: none;
+}
+
+.daisy-journal-98 .journal-sidebar :is(.page-number, .page-index) {
+    color: inherit;
+}
+
+.daisy-journal-98 .journal-sidebar button,
+.daisy-journal-98 :is(.journal-entry-page, .journal-page-content) > header .edit-page {
+    min-height: 34px;
+    border: 3px solid #050505;
+    border-radius: 0;
+    background: #fff;
+    color: #050505;
+    box-shadow: 3px 3px 0 #050505;
+}
+
+.daisy-journal-98 .journal-sidebar button:hover,
+.daisy-journal-98 :is(.journal-entry-page, .journal-page-content) > header .edit-page:hover {
+    background: #050505;
+    color: #fff;
+    box-shadow: none;
+    translate: 2px 2px;
+}
+
+.daisy-journal-98 .journal-entry-content {
+    background: #fff;
+}
+
+.daisy-journal-98 .journal-entry-content > :is(.journal-header, header:first-child) {
+    padding: 10px;
+    border-bottom: 5px solid #050505;
+    background: #fff;
+}
+
+.daisy-journal-98 .journal-entry-content > :is(.journal-header, header:first-child) :is(input, .title) {
+    min-height: 44px;
+    border-radius: 0;
+    background: #050505;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 400;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.daisy-journal-98 .journal-page-content {
+    padding: 9px !important;
+    scrollbar-color: #050505 #fff;
+}
+
+.daisy-journal-98 .journal-entry-page {
+    padding: clamp(18px, 3vw, 34px);
+    border: 4px solid #050505;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 8px 8px 0 #050505;
+}
+
+.daisy-journal-98 .journal-entry-page > header h1,
+.daisy-journal-98 .journal-page-header h1 {
+    margin: 0 0 0.2em;
+    padding: 0.34em 0.5em;
+    border: 0;
+    background: #050505;
+    color: #fff;
+    font-family: "Daisy Daydream", "Daisy Iosevka", Iosevka, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) h2 {
+    display: block;
+    padding: 0.24em 0.4em;
+    border: 3px solid #050505;
+    background: #fff;
+    color: #050505;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+    font-weight: 800;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) h2::before {
+    display: none;
+    content: none;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) h3 {
+    padding: 0 0 0 0.6em;
+    border-left: 6px solid #050505;
+    color: #050505;
+    font-family: "Daisy Iosevka", Iosevka, monospace;
+    font-weight: 800;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) a {
+    color: #050505;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) li::marker {
+    color: #050505;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) blockquote {
+    border: 3px solid #050505;
+    border-left-width: 10px;
+    background: #fff;
+    color: #050505;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) :is(table, th, td) {
+    border-color: #050505;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) th {
+    background: #050505;
+    color: #fff;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) :is(code, kbd) {
+    border: 2px solid #050505;
+    border-radius: 0;
+    background: #fff;
+    color: #050505;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) pre {
+    border: 4px solid #050505;
+    background: #050505;
+    color: #fff;
+}
+
+.daisy-journal-98 :is(.daisy-prose, .journal-entry-page) img {
+    border: 4px solid #050505;
+    box-shadow: 7px 7px 0 #050505;
+}
+
+.daisy-journal-98 :is(prose-mirror, .prosemirror, .editor-container) {
+    border: 4px solid #050505;
+    border-radius: 0;
+    background: #fff;
+}
+
+.daisy-journal-98 :is(prose-mirror, .prosemirror) :is(menu, .editor-menu, .menu) {
+    border-bottom: 4px solid #050505;
+    background: #050505;
+    color: #fff;
+}

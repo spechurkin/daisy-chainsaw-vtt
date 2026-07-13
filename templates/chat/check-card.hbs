@@ -1,0 +1,45 @@
+<article class="daisy-chat-card daisy-check-card daisy-chat-actor-{{actor.type}} daisy-check-{{kind}} {{#if result.successful}}is-success{{else}}is-failure{{/if}}"
+  data-daisy-message-card>
+  <header class="daisy-chat-header">
+    {{#if actor.img}}<img src="{{actor.img}}" alt="">{{/if}}
+    <div>
+      <p class="daisy-chat-kicker">{{actor.name}}</p>
+      <h3>{{label}}</h3>
+    </div>
+    <span class="daisy-chat-outcome" title="{{localize 'DAISY.Chat.Successes'}}"><strong>{{result.successes}}</strong><small>{{localize "DAISY.Chat.Successes"}}</small></span>
+  </header>
+
+  {{#if target}}
+  <p class="daisy-chat-target"><i class="fa-solid fa-crosshairs"></i>
+    {{localize "DAISY.Chat.Target"}}: <strong>{{target.name}}</strong>
+  </p>
+  {{/if}}
+
+  <div class="daisy-dice-results" aria-label="{{localize 'DAISY.Chat.DiceResults'}}">
+    {{#each dice}}
+    <span class="daisy-die {{#if successful}}is-success{{else}}is-failure{{/if}} {{#if exploded}}is-exploded{{/if}} {{#if converted}}is-converted{{/if}}"
+      data-face="{{value}}">{{value}}</span>
+    {{else}}
+    <span class="daisy-no-dice">{{localize "DAISY.Chat.NoDice"}}</span>
+    {{/each}}
+  </div>
+
+  <dl class="daisy-chat-summary">
+    <div><dt>{{localize "DAISY.Chat.Pool"}}</dt><dd>{{result.pool}}</dd></div>
+    <div><dt>{{localize "DAISY.Chat.Threshold"}}</dt><dd>{{result.threshold}}</dd></div>
+    <div><dt>{{localize "DAISY.Chat.Successes"}}</dt><dd>{{result.successes}}</dd></div>
+    {{#if result.exploded}}<div><dt>{{localize "DAISY.Chat.Explosions"}}</dt><dd>{{result.exploded}}</dd></div>{{/if}}
+  </dl>
+
+  {{#if details}}<p class="daisy-chat-details">{{details}}</p>{{/if}}
+
+  {{#if isAttack}}
+  <footer class="daisy-chat-actions">
+    <button type="button" data-daisy-chat-action="apply-harm" data-amount="{{result.successes}}"
+      {{#if target.uuid}}data-target-uuid="{{target.uuid}}"{{/if}} {{#unless result.successful}}disabled{{/unless}}>
+      <i class="fa-solid fa-heart-crack"></i>
+      {{localize "DAISY.Chat.ApplyHarm"}} ({{result.successes}})
+    </button>
+  </footer>
+  {{/if}}
+</article>

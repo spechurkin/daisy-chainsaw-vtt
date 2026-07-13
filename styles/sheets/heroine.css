@@ -1,0 +1,186 @@
+/* ------------------------------------------------------------------------- */
+/* Native HBS heroine layouts                                                */
+/* ------------------------------------------------------------------------- */
+
+.daisy-sheet-canvas {
+    display: flex;
+    width: 100%;
+    min-width: 680px;
+    min-height: 100%;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px;
+    overflow: visible;
+    background: #eceaec;
+    color: #0c090b;
+    font-size: 14px;
+    line-height: 1.2;
+    user-select: auto;
+}
+
+.daisy-sheet-canvas,
+.daisy-sheet-canvas :is(input, select, button, output, h1, h2, label, legend) {
+    font-family: "Daisy Iosevka", Iosevka, monospace !important;
+}
+
+.daisy-sheet-canvas :is(input, select, button, output) {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: 28px;
+    margin: 0;
+    padding: 3px 7px;
+    border: 1px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+}
+
+.daisy-sheet-canvas :is(input, select):hover:not(:disabled),
+.daisy-sheet-canvas :is(input, select):focus:not(:disabled) {
+    border-color: var(--daisy-pink);
+    background: #fff;
+}
+
+.daisy-sheet-canvas input[type="number"] {
+    appearance: textfield;
+    font-variant-numeric: tabular-nums;
+}
+
+.daisy-sheet-canvas input[type="number"]::-webkit-inner-spin-button,
+.daisy-sheet-canvas input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+.daisy-sheet-canvas .rule-remove {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    min-height: 22px;
+    padding: 0;
+    translate: 0 -50%;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(245, 0, 79, 0.12);
+    color: var(--daisy-pink-dark);
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.38;
+}
+
+.daisy-sheet-canvas :is(.classic-rule-row, .daisy-98-rule):hover .rule-remove,
+.daisy-sheet-canvas .rule-remove:focus-visible {
+    background: var(--daisy-pink);
+    color: #fff;
+    opacity: 1;
+}
+
+.daisy-status-drawer {
+    z-index: 12;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    pointer-events: none;
+}
+
+.daisy-status-chip {
+    display: inline-flex;
+    min-height: 27px;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 5px 3px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    border-radius: 999px;
+    background: rgba(19, 13, 18, 0.92);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(19, 13, 18, 0.3);
+    pointer-events: auto;
+}
+
+.daisy-status-chip button {
+    position: static !important;
+    width: 21px !important;
+    height: 21px !important;
+    min-height: 21px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(245, 0, 79, 0.86) !important;
+    color: #fff !important;
+}
+
+.daisy-float-actions {
+    z-index: 14;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    border-radius: 999px;
+    background: rgba(19, 13, 18, 0.92);
+    box-shadow: 0 5px 14px rgba(19, 13, 18, 0.34);
+    white-space: nowrap;
+}
+
+.daisy-sheet-canvas .daisy-float-actions > button,
+.daisy-sheet-canvas .daisy-burnout-control > button {
+    width: auto;
+    min-width: 29px;
+    min-height: 29px;
+    padding: 0 8px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.daisy-sheet-canvas .daisy-float-actions > button:hover,
+.daisy-sheet-canvas .daisy-burnout-control > button:hover {
+    border-color: var(--daisy-pink);
+    background: var(--daisy-pink);
+}
+
+.daisy-float-actions > button :is(i, span) {
+    color: #fff;
+}
+
+.daisy-float-actions > button i {
+    margin-right: 4px;
+}
+
+.daisy-build-indicator {
+    display: inline-grid;
+    min-width: 30px;
+    place-items: center;
+    color: #4ade80;
+    cursor: help;
+}
+
+.daisy-build-indicator.is-invalid {
+    color: #fb7185;
+}
+
+.daisy-action-counter,
+.daisy-burnout-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #fff;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.daisy-burnout-control output {
+    min-width: 49px;
+    padding: 0 4px;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+}

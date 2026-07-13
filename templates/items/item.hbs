@@ -1,0 +1,87 @@
+<section class="daisy-item-layout">
+  <header class="daisy-item-header">
+    <div class="daisy-item-image">
+      <img src="{{item.img}}" alt="">
+      <file-picker name="img" type="image" value="{{item.img}}" {{#unless editable}}disabled{{/unless}}></file-picker>
+    </div>
+    <div>
+      <p class="daisy-kicker">{{item.type}}</p>
+      <input class="daisy-title-input" type="text" name="name" value="{{item.name}}" aria-label="{{localize 'DAISY.Common.Name'}}"
+        {{#unless editable}}disabled{{/unless}}>
+      <input class="daisy-slug-input" type="text" name="system.slug" value="{{system.slug}}" placeholder="slug"
+        aria-label="{{localize 'DAISY.Common.Slug'}}" {{#unless editable}}disabled{{/unless}}>
+    </div>
+  </header>
+
+  <div class="daisy-item-body">
+    <div class="daisy-form-grid">
+      <label><span>{{localize "DAISY.Common.SourcePage"}}</span><input type="number" name="system.sourcePage" value="{{system.sourcePage}}" min="0"
+        {{#unless editable}}disabled{{/unless}}></label>
+
+      {{#if isWeapon}}
+      <label><span>{{localize "DAISY.ItemSheet.Parameters"}}</span><input type="text" name="system.parametersCsv" value="{{parametersCsv}}" placeholder="{{localize 'DAISY.ItemSheet.ParametersPlaceholder'}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Range"}}</span><select name="system.range" {{#unless editable}}disabled{{/unless}}>
+        {{#each rangeOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select></label>
+      {{/if}}
+
+      {{#if isGimmick}}
+      <label><span>{{localize "DAISY.ItemSheet.Weapon"}}</span><input type="text" name="system.weapon" value="{{system.weapon}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Type"}}</span><select name="system.subtype" {{#unless editable}}disabled{{/unless}}>
+        {{#each subtypeOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select></label>
+      {{/if}}
+
+      {{#if isAbility}}
+      <label><span>{{localize "DAISY.ItemSheet.Weapon"}}</span><input type="text" name="system.weapon" value="{{system.weapon}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      {{/if}}
+
+      {{#if hasLevel}}
+      <label><span>{{localize "DAISY.Common.Level"}}</span><input type="number" name="system.level" value="{{system.level}}" min="1" max="3"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Category"}}</span><select name="system.category" {{#unless editable}}disabled{{/unless}}>
+        {{#each categoryOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select></label>
+      <label><span>{{localize "DAISY.Common.Action"}}</span><select name="system.activation" {{#unless editable}}disabled{{/unless}}>
+        {{#each activationOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select></label>
+      <label><span>{{localize "DAISY.Common.Requirements"}}</span><input type="text" name="system.requirementsCsv" value="{{requirementsCsv}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      {{/if}}
+
+      {{#if isAbility}}
+      <label class="daisy-check"><input type="checkbox" name="system.passive" {{checked system.passive}}
+        {{#unless editable}}disabled{{/unless}}> {{localize "DAISY.ItemSheet.PassiveAbility"}}</label>
+      {{/if}}
+
+      {{#if isSpell}}
+      <label><span>{{localize "DAISY.Common.Duration"}}</span><input type="text" name="system.duration" value="{{system.duration}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Area"}}</span><input type="text" name="system.area" value="{{system.area}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      {{/if}}
+
+      {{#if isFeature}}
+      <label><span>{{localize "DAISY.Common.Type"}}</span><input type="text" name="system.subtype" value="{{system.subtype}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Duration"}}</span><input type="text" name="system.duration" value="{{system.duration}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      <label><span>{{localize "DAISY.Common.Timing"}}</span><input type="text" name="system.timing" value="{{system.timing}}"
+        {{#unless editable}}disabled{{/unless}}></label>
+      {{/if}}
+    </div>
+
+    <label class="daisy-description-field"><span>{{localize "DAISY.Common.Description"}}</span>
+      <textarea name="system.description" rows="14" {{#unless editable}}disabled{{/unless}}>{{system.description}}</textarea>
+    </label>
+  </div>
+
+  <footer class="daisy-item-footer">
+    <button type="button" data-action="use-item" {{#unless canUse}}disabled{{/unless}}>
+      <i class="fa-solid fa-wand-magic-sparkles"></i> {{localize "DAISY.Actions.Use"}}
+    </button>
+  </footer>
+</section>

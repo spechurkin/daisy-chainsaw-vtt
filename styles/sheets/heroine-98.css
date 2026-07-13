@@ -1,0 +1,527 @@
+/* Windows 98 sheet. */
+
+.daisy-98-canvas {
+    gap: 0;
+    padding: 8px;
+    min-width: 980px;
+    aspect-ratio: auto;
+    border: 8px solid #050505;
+    background: #fff;
+}
+
+.application.daisy-chainsaw.daisy-heroine-98 .daisy-sheet-window-content {
+    background: #050505;
+}
+
+.daisy-98-titlebar,
+.daisy-98-window > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #050505;
+    color: #fff;
+}
+
+.daisy-98-titlebar {
+    min-height: 56px;
+    padding: 5px 10px 5px 18px;
+}
+
+.daisy-98-titlebar h1 {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0;
+    font-size: 1.55rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.daisy-98-titlebar h1 strong {
+    font-family: "Daisy Daydream", "Daisy Iosevka", sans-serif !important;
+    font-size: 1.65rem;
+    letter-spacing: -0.04em;
+    line-height: 0.8;
+}
+
+.daisy-98-title-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.daisy-98-title-controls button {
+    width: 34px;
+    min-height: 34px;
+    padding: 0;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.daisy-98-title-controls button:first-child {
+    border-color: transparent;
+}
+
+.daisy-98-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: clamp(195px, 19cqw, 225px) auto clamp(145px, 15cqw, 165px) auto;
+    gap: 14px;
+    padding: 18px;
+    background: #fff;
+}
+
+.daisy-98-top-grid,
+.daisy-98-profile-column {
+    display: contents;
+}
+
+.daisy-98-window {
+    min-width: 0;
+    border: 4px solid #050505;
+    background: #fff;
+}
+
+.daisy-98-portrait-window {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 1;
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    grid-template-rows: 28px minmax(0, 1fr);
+    align-self: start;
+}
+
+.daisy-98-personal-window {
+    grid-column: 1 / 4;
+    grid-row: 3;
+}
+
+.daisy-98-gimmick-window {
+    grid-column: 4 / 8;
+    grid-row: 1;
+}
+
+.daisy-98-parameter-window {
+    grid-column: 8 / 13;
+    grid-row: 1;
+}
+
+.daisy-98-weapon-window {
+    grid-column: 4 / 8;
+    grid-row: 2 / 4;
+}
+
+.daisy-98-trait-window {
+    grid-column: 8 / 13;
+    grid-row: 2 / 4;
+}
+
+.daisy-98-window > header {
+    min-height: 28px;
+    padding: 2px 5px;
+}
+
+.daisy-98-window > header h2,
+.daisy-98-window > header span {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.daisy-98-window > header h2 {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daisy-98-canvas .daisy-98-portrait {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.daisy-98-canvas .daisy-98-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.daisy-98-canvas .daisy-98-personal,
+.daisy-98-canvas .daisy-98-gimmicks,
+.daisy-98-canvas .daisy-98-parameters,
+.daisy-98-canvas .daisy-98-weapons {
+    position: static;
+    inset: auto;
+}
+
+.daisy-98-personal {
+    display: grid;
+    gap: 8px;
+    padding: 10px;
+}
+
+.daisy-98-personal label,
+.daisy-98-weapons label {
+    display: grid;
+    gap: 4px;
+}
+
+.daisy-98-personal label {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: end;
+    gap: 8px;
+}
+
+.daisy-98-personal input,
+.daisy-98-personal select,
+.daisy-98-weapons select {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #050505;
+}
+
+.daisy-98-gimmicks {
+    display: grid;
+    height: calc(100% - 28px);
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    padding: 14px;
+}
+
+.daisy-98-gimmicks label {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 4px 8px;
+    align-items: center;
+    font-size: 1.35rem;
+}
+
+.daisy-98-gimmicks select,
+.daisy-98-gimmicks input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #050505;
+    font-size: 0.9rem;
+}
+
+.daisy-98-gimmicks input {
+    grid-column: 2;
+}
+
+.daisy-98-canvas .daisy-98-parameters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+    align-content: center;
+    padding: 12px;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter {
+    position: static;
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: auto 1fr;
+    border: 2px solid #050505;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-charm {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-focus {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-heart {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-strength {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-damage {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter-speed {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter > :first-child {
+    display: grid;
+    min-width: 86px;
+    place-items: center;
+    border: 0;
+    border-right: 2px solid #050505;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.daisy-98-canvas .daisy-98-parameters .parameter input,
+.daisy-98-canvas .daisy-98-parameters .parameter output {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding: 2px 5px;
+    border: 0;
+    font-size: 1.45rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.daisy-98-canvas .resource-steppers {
+    position: static;
+    display: grid;
+    height: auto;
+    grid-template-columns: 24px 1fr 24px;
+    gap: 0;
+}
+
+.daisy-98-canvas .resource-steppers button {
+    position: static;
+    width: 24px;
+    height: auto;
+    min-height: 40px;
+    border: 0;
+    border-right: 1px solid #050505;
+    background: #fff;
+}
+
+.daisy-98-canvas .resource-steppers button:last-child {
+    border-right: 0;
+    border-left: 1px solid #050505;
+}
+
+.daisy-98-middle-grid {
+    display: contents;
+}
+
+.daisy-98-weapons {
+    display: grid;
+    height: calc(100% - 28px);
+    align-content: center;
+    padding: 8px 12px 12px;
+}
+
+.daisy-98-weapons fieldset {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0 0 8px;
+    border: 0;
+}
+
+.daisy-98-weapons legend {
+    padding: 3px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.daisy-98-weapons label {
+    grid-template-columns: 105px 1fr;
+    align-items: end;
+}
+
+.daisy-98-canvas .daisy-98-traits {
+    position: static;
+    display: grid;
+    width: auto;
+    height: auto;
+    padding: 12px;
+}
+
+.daisy-98-canvas .daisy-98-trait {
+    position: static;
+    display: grid;
+    width: auto;
+    height: auto;
+    min-height: 38px;
+    grid-template-columns: minmax(130px, 0.36fr) 18px 1fr;
+    align-items: center;
+}
+
+.daisy-98-canvas .daisy-98-trait input {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: 0;
+    border-bottom: 2px solid #050505;
+}
+
+.daisy-98-rules-grid {
+    display: contents;
+}
+
+.daisy-98-canvas .daisy-98-rules,
+.daisy-98-canvas .daisy-98-abilities,
+.daisy-98-canvas .daisy-98-spells {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+}
+
+.daisy-98-canvas .daisy-98-abilities {
+    grid-column: 1 / 7;
+    grid-row: 4;
+}
+
+.daisy-98-canvas .daisy-98-spells {
+    grid-column: 7 / 13;
+    grid-row: 4;
+}
+
+.daisy-98-rule-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, minmax(40px, auto));
+    grid-template-columns: 1fr 1fr;
+    padding: 8px 12px 12px;
+}
+
+.daisy-98-canvas .daisy-98-rule,
+.daisy-98-canvas .daisy-98-rule:nth-child(n) {
+    position: relative;
+    inset: auto;
+    display: grid;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    grid-template-columns: 28px 1fr;
+    grid-template-rows: 24px 20px;
+    padding: 2px 10px 2px 7px;
+}
+
+.daisy-98-canvas .daisy-98-rule:nth-child(-n + 5) {
+    border-right: 1px dashed #050505;
+}
+
+.daisy-98-rule .rule-number {
+    grid-row: 1 / 3;
+    padding-top: 3px;
+    font-size: 1.05rem;
+}
+
+.daisy-98-canvas .daisy-98-rule :is(.rule-entry, .rule-empty),
+.daisy-98-canvas .daisy-98-rule .rule-description {
+    position: static;
+    inset: auto;
+    width: auto;
+    height: auto;
+    min-height: 20px;
+    padding: 1px 4px;
+    overflow: hidden;
+    border: 0;
+    border-bottom: 2px solid #050505;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.daisy-98-canvas .daisy-98-rule .rule-empty {
+    grid-row: 1 / 3;
+    color: var(--daisy-pink);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.daisy-98-canvas .daisy-98-rule .rule-remove {
+    position: absolute;
+    top: 50%;
+    right: 2px;
+}
+
+.daisy-98-canvas > .daisy-status-drawer {
+    position: static;
+    max-width: none;
+    justify-content: flex-start;
+    padding: 0 18px 8px;
+}
+
+.daisy-98-canvas > .daisy-float-actions.daisy-98-actions {
+    position: static;
+    z-index: 20;
+    inset: auto;
+    width: calc(100% + 16px);
+    max-width: none;
+    min-height: 46px;
+    align-self: stretch;
+    justify-content: center;
+    margin: 0 -8px -8px;
+    padding: 6px 12px;
+    translate: none;
+    border: 0;
+    border-radius: 0;
+    background: #050505;
+    box-shadow: none;
+    overflow-x: auto;
+}
+
+.daisy-98-canvas .daisy-98-actions > button,
+.daisy-98-canvas .daisy-98-actions .daisy-burnout-control > button {
+    min-height: 30px;
+    padding: 0 8px;
+    border: 1px solid #fff;
+    border-radius: 0;
+    background: #050505;
+}
+
+.daisy-98-actions > button span {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: nowrap;
+}
+
+@container (max-width: 920px) {
+    .classic-header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .classic-logo {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .classic-middle-grid,
+    .classic-rules-grid,
+    .daisy-98-middle-grid,
+    .daisy-98-rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .daisy-98-top-grid {
+        grid-template-columns: minmax(210px, 0.65fr) 1fr;
+    }
+
+    .daisy-98-parameter-window {
+        grid-column: 1 / -1;
+    }
+}

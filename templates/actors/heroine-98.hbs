@@ -1,0 +1,160 @@
+<section class="daisy-sheet-canvas daisy-98-canvas" aria-label="{{localize 'DAISY.Heroine.Sheet98'}}">
+  <header class="daisy-98-titlebar">
+    <h1><strong>DAISY CHAINSAW</strong><span>— {{localize "DAISY.Heroine.CharacterSheetShort"}}</span></h1>
+    <div class="daisy-98-title-controls">
+      <button type="button" data-action="window-minimize" aria-label="{{localize 'DAISY.Actions.Minimize'}}">−</button>
+      <button type="button" data-action="window-maximize" aria-label="{{localize 'DAISY.Actions.Maximize'}}">□</button>
+      <button type="button" data-action="window-close" aria-label="{{localize 'DAISY.Actions.CloseWindow'}}">×</button>
+    </div>
+  </header>
+
+  <div class="daisy-98-desktop">
+    <div class="daisy-98-top-grid">
+      <div class="daisy-98-profile-column">
+        <section class="daisy-98-window daisy-98-portrait-window">
+          <header><h2>{{localize "DAISY.Heroine.PortraitLabel"}}.jpg</h2><span>− □ ×</span></header>
+          <button class="daisy-98-portrait" type="button" data-action="choose-portrait" aria-label="{{localize 'DAISY.Heroine.ChoosePortrait'}}">
+            <img src="{{actor.img}}" alt="{{dcFormat 'DAISY.Heroine.Portrait' name=actor.name}}">
+          </button>
+        </section>
+        <section class="daisy-98-window daisy-98-personal-window">
+          <header><h2>{{localize "DAISY.Heroine.PersonalData"}}.txt</h2><span>− □ ×</span></header>
+          <div class="daisy-98-personal">
+            <label><span>{{localize "DAISY.Heroine.Name"}}</span><input type="text" name="name" value="{{actor.name}}" autocomplete="off" {{#unless editable}}disabled{{/unless}}></label>
+            <label><span>{{localize "DAISY.Heroine.Team"}}</span><select name="system.teamUuid" {{#unless editable}}disabled{{/unless}}>
+              {{#each teams}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select></label>
+            <label><span>{{localize "DAISY.Common.PowerLevelShort"}}</span><input type="number" name="system.level" value="{{system.level}}" min="1" max="10" {{#unless editable}}disabled{{/unless}}></label>
+          </div>
+        </section>
+      </div>
+
+      <section class="daisy-98-window daisy-98-gimmick-window">
+        <header><h2>{{localize "DAISY.Weapons.Quirks"}}.txt</h2><span>− □ ×</span></header>
+        <div class="daisy-98-gimmicks">
+          <label><span>1)</span><select name="system.weapons.main.gimmick" aria-label="{{localize 'DAISY.Weapons.MainQuirk'}}" {{#unless editable}}disabled{{/unless}}>
+            {{#each mainGimmickOptions}}<option value="{{value}}" title="{{description}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+          </select><input type="text" name="system.weapons.main.notes" value="{{mainWeapon.notes}}" aria-label="{{localize 'DAISY.Common.Notes'}}" autocomplete="off" {{#unless editable}}disabled{{/unless}}></label>
+          <label><span>2)</span><select name="system.weapons.reserve.gimmick" aria-label="{{localize 'DAISY.Weapons.OffhandQuirk'}}" {{#unless editable}}disabled{{/unless}}>
+            {{#each reserveGimmickOptions}}<option value="{{value}}" title="{{description}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+          </select><input type="text" name="system.weapons.reserve.notes" value="{{reserveWeapon.notes}}" aria-label="{{localize 'DAISY.Common.Notes'}}" autocomplete="off" {{#unless editable}}disabled{{/unless}}></label>
+        </div>
+      </section>
+
+      <section class="daisy-98-window daisy-98-parameter-window">
+        <header><h2>{{localize "DAISY.Attributes.Title"}}.csv</h2><span>− □ ×</span></header>
+        <div class="daisy-98-parameters">
+          {{#each attributes}}
+          <label class="parameter parameter-{{key}}">
+            <button type="button" data-action="roll-check" data-attribute="{{key}}" data-label="{{label}}"
+              aria-label="{{dcFormat 'DAISY.Attributes.Roll' attribute=label}}">{{label}}</button>
+            <input type="number" name="system.attributes.{{key}}.value" value="{{value}}" min="1" max="6" aria-label="{{label}}" {{#unless ../editable}}disabled{{/unless}}>
+          </label>
+          {{/each}}
+          <label class="parameter parameter-damage"><span>{{localize "DAISY.Resources.HarmPoolShort"}}</span><span class="resource-steppers">
+            <button type="button" data-action="adjust-damage" data-delta="-1" aria-label="{{localize 'DAISY.Resources.DecreaseHarm'}}">−</button>
+            <input type="number" name="system.resources.damage.value" value="{{damage}}" min="0" max="{{damageMaximum}}" {{#unless editable}}disabled{{/unless}}>
+            <button type="button" data-action="adjust-damage" data-delta="1" aria-label="{{localize 'DAISY.Resources.IncreaseHarm'}}">+</button>
+          </span></label>
+          <label class="parameter parameter-speed"><span>{{localize "DAISY.Attributes.Speed"}}</span><output>{{speed}}</output></label>
+        </div>
+      </section>
+    </div>
+
+    <div class="daisy-98-middle-grid">
+      <section class="daisy-98-window daisy-98-weapon-window">
+        <header><h2>{{localize "DAISY.Weapons.Title"}}.exe</h2><span>− □ ×</span></header>
+        <div class="daisy-98-weapons">
+          <fieldset><legend>-----------{{localize "DAISY.Weapons.Main"}}-----------</legend>
+            <label><span>{{localize "DAISY.Weapons.Weapon"}}</span><select name="system.weapons.main.slug" aria-label="{{localize 'DAISY.Weapons.MainWeapon'}}" {{#unless editable}}disabled{{/unless}}>
+              {{#each mainWeaponOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select></label>
+            <label><span>{{localize "DAISY.Weapons.Parameters"}}</span><select name="system.weapons.main.parameter" aria-label="{{localize 'DAISY.Weapons.MainParameter'}}"
+              {{#if originalWeaponStats}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+              {{#each mainParameterOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select></label>
+          </fieldset>
+          <fieldset><legend>-----------{{localize "DAISY.Weapons.Offhand"}}-----------</legend>
+            <label><span>{{localize "DAISY.Weapons.Weapon"}}</span><select name="system.weapons.reserve.slug" aria-label="{{localize 'DAISY.Weapons.OffhandWeapon'}}" {{#unless editable}}disabled{{/unless}}>
+              {{#each reserveWeaponOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select></label>
+            <label><span>{{localize "DAISY.Weapons.Parameters"}}</span><select name="system.weapons.reserve.parameter" aria-label="{{localize 'DAISY.Weapons.OffhandParameter'}}"
+              {{#if originalWeaponStats}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+              {{#each reserveParameterOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select></label>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="daisy-98-window daisy-98-trait-window">
+        <header><h2>{{localize "DAISY.Heroine.Traits"}}.dll</h2><span>− □ ×</span></header>
+        <div class="daisy-98-traits">
+          {{#each traits}}
+          <label class="daisy-98-trait"><input class="trait-name" type="text" name="system.traits.{{index}}.name" value="{{name}}"
+            aria-label="{{localize 'DAISY.Common.Name'}}" autocomplete="off" {{#unless ../editable}}disabled{{/unless}}><span>:</span>
+            <input class="trait-note" type="text" name="system.traits.{{index}}.note" value="{{note}}"
+              aria-label="{{localize 'DAISY.Common.Notes'}}" autocomplete="off" {{#unless ../editable}}disabled{{/unless}}></label>
+          {{/each}}
+        </div>
+      </section>
+    </div>
+
+    <div class="daisy-98-rules-grid">
+      <section class="daisy-98-window daisy-98-rules daisy-98-abilities">
+        <header><h2>{{localize "DAISY.Ability.Plural"}}.json</h2><span>− □ ×</span></header>
+        <div class="daisy-98-rule-list">
+          {{#each abilities}}
+          <div class="daisy-98-rule"><span class="rule-number">{{number}})</span>
+            {{#if empty}}
+            <button class="rule-empty" type="button" data-action="open-rule-browser" data-collection="abilities" aria-label="{{dcFormat 'DAISY.Ability.AddSlot' slot=number}}">＋</button>
+            {{else}}
+            <button class="rule-entry" type="button" data-action="use-rule-entry" data-slug="{{slug}}" data-kind="ability" data-name="{{name}}" title="{{description}}">{{name}}</button>
+            <span class="rule-description" title="{{description}}">{{description}}</span>
+            <button class="rule-remove" type="button" data-action="remove-selection" data-collection="abilities" data-slug="{{slug}}" aria-label="{{dcFormat 'DAISY.Ability.Remove' name=name}}">×</button>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="daisy-98-window daisy-98-rules daisy-98-spells">
+        <header><h2>{{localize "DAISY.Spell.Plural"}}.json</h2><span>− □ ×</span></header>
+        <div class="daisy-98-rule-list">
+          {{#each spells}}
+          <div class="daisy-98-rule"><span class="rule-number">{{number}})</span>
+            {{#if empty}}
+            <button class="rule-empty" type="button" data-action="open-rule-browser" data-collection="spells" aria-label="{{dcFormat 'DAISY.Spell.AddSlot' slot=number}}">＋</button>
+            {{else}}
+            <button class="rule-entry" type="button" data-action="use-rule-entry" data-slug="{{slug}}" data-kind="spell" data-name="{{name}}" title="{{description}}">{{name}}</button>
+            <span class="rule-description" title="{{description}}">{{description}}</span>
+            <button class="rule-remove" type="button" data-action="remove-selection" data-collection="spells" data-slug="{{slug}}" aria-label="{{dcFormat 'DAISY.Spell.Remove' name=name}}">×</button>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  {{#if statuses.length}}<aside class="daisy-status-drawer" aria-label="{{localize 'DAISY.Status.Title'}}">
+    {{#each statuses}}<span class="daisy-status-chip" title="{{description}}">{{name}}
+      {{#if ../hasBeyond}}{{#if beneficial}}<button type="button" data-action="extend-beyond" data-status-id="{{id}}" title="{{localize 'DAISY.PushLimits.Extend'}}">＋</button>{{/if}}{{/if}}
+      <button type="button" data-action="remove-status" data-status-id="{{id}}" aria-label="{{dcFormat 'DAISY.Status.Remove' name=name}}">×</button></span>{{/each}}
+  </aside>{{/if}}
+
+  <nav class="daisy-float-actions daisy-98-actions" aria-label="{{localize 'DAISY.Heroine.Actions'}}">
+    {{#if actionsTracked}}<span class="daisy-action-counter" title="{{localize 'DAISY.Combat.ActionsRemaining'}}"><i class="fa-solid fa-hourglass-half"></i> {{actionsRemaining}}/2</span>{{/if}}
+    <button type="button" data-action="roll-move" title="{{localize 'DAISY.Combat.Move'}}"><i class="fa-solid fa-person-running"></i><span>{{localize "DAISY.Combat.Move"}}</span></button>
+    <button type="button" data-action="roll-attack" title="{{localize 'DAISY.Combat.BasicAttack'}}"><i class="fa-solid fa-burst"></i><span>{{localize "DAISY.Combat.Attack"}}</span></button>
+    <button type="button" data-action="roll-save" title="{{localize 'DAISY.Combat.Save'}}"><i class="fa-solid fa-shield-halved"></i><span>{{localize "DAISY.Combat.Save"}}</span></button>
+    <button type="button" data-action="roll-initiative" title="{{localize 'DAISY.Combat.Initiative'}}"><i class="fa-solid fa-bolt"></i><span>{{localize "DAISY.Combat.Initiative"}}</span></button>
+    <button type="button" data-action="go-beyond" title="{{localize 'DAISY.PushLimits.Title'}}"><i class="fa-solid fa-fire-flame-curved"></i><span>{{localize "DAISY.PushLimits.Title"}}</span></button>
+    <button type="button" data-action="open-rule-browser" data-collection="abilities" title="{{localize 'DAISY.RuleBrowser.Title'}}"><i class="fa-solid fa-book-open"></i><span>{{localize "DAISY.RuleBrowser.Title"}}</span></button>
+    <span class="daisy-build-indicator {{#if build.valid}}is-valid{{else}}is-invalid{{/if}}" title="{{buildSummary}}"><i class="fa-solid {{#if build.valid}}fa-circle-check{{else}}fa-triangle-exclamation{{/if}}"></i></span>
+    <span class="daisy-burnout-control" title="{{localize 'DAISY.Resources.Burnout'}} {{burnout}} / {{burnoutMaximum}}">
+      <button type="button" data-action="adjust-burnout" data-delta="-1" aria-label="{{localize 'DAISY.Resources.DecreaseBurnout'}}">−</button>
+      <output>{{burnout}}/{{burnoutMaximum}}</output>
+      <button type="button" data-action="adjust-burnout" data-delta="1" aria-label="{{localize 'DAISY.Resources.IncreaseBurnout'}}">+</button>
+    </span>
+  </nav>
+</section>

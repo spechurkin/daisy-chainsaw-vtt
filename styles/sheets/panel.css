@@ -1,0 +1,383 @@
+/* ------------------------------------------------------------------------- */
+/* Enemy and team panel sheets                                               */
+/* ------------------------------------------------------------------------- */
+
+.daisy-panel-sheet {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    container-type: inline-size;
+    background: linear-gradient(135deg, rgba(245, 0, 79, 0.08), transparent 38%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(19, 13, 18, 0.035) 31px 32px),
+    var(--daisy-paper);
+    color: var(--daisy-ink);
+}
+
+.daisy-panel-sheet::after {
+    position: absolute;
+    z-index: 0;
+    right: -70px;
+    bottom: -100px;
+    width: 250px;
+    height: 250px;
+    border: 34px solid rgba(245, 0, 79, 0.07);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.daisy-panel-header {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    padding: 18px 22px;
+    border-bottom: 5px solid var(--daisy-pink);
+    background: linear-gradient(105deg, rgba(245, 0, 79, 0.18), transparent 42%),
+    var(--daisy-ink);
+    color: #fff;
+}
+
+.daisy-panel-portrait {
+    width: 104px;
+    height: 104px;
+    padding: 0;
+    overflow: hidden;
+    border: 3px solid #fff;
+    border-radius: 2px 22px 2px 22px;
+    background: #30222c;
+    box-shadow: 7px 7px 0 var(--daisy-pink);
+}
+
+.daisy-panel-portrait img {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+.daisy-panel-identity {
+    min-width: 0;
+}
+
+.daisy-kicker {
+    margin: 0 0 4px;
+    color: var(--daisy-pink);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+}
+
+.daisy-panel-header .daisy-title-input,
+.daisy-item-header .daisy-title-input {
+    width: 100%;
+    height: auto;
+    padding: 2px 0 4px;
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.52);
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-family: "Daisy Daydream", "Daisy Iosevka", Iosevka, sans-serif;
+    font-size: clamp(1.35rem, 4.4cqw, 2.35rem);
+    line-height: 1.1;
+}
+
+.daisy-panel-header .daisy-title-input:hover,
+.daisy-panel-header .daisy-title-input:focus {
+    border-color: var(--daisy-pink);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.daisy-inline-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    margin-top: 9px;
+    font-size: 0.88rem;
+}
+
+.daisy-inline-fields label,
+.daisy-team-burnout {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.daisy-inline-fields input[type="number"] {
+    width: 4.3em;
+    height: 2em;
+    text-align: center;
+}
+
+.daisy-check input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: var(--daisy-pink);
+}
+
+.daisy-panel-body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 16px;
+    padding: 18px 22px 28px;
+}
+
+.daisy-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.daisy-stat-grid > label {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 5px 8px;
+    align-items: center;
+    min-height: 72px;
+    padding: 10px 12px;
+    border: 1px solid var(--daisy-line);
+    border-left: 5px solid var(--daisy-pink);
+    background: rgba(255, 255, 255, 0.78);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.daisy-stat-grid > label > :is(input, output, span) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.daisy-stat-grid input[type="number"] {
+    width: 4.3em;
+    height: 2.25em;
+    text-align: center;
+}
+
+.daisy-stat-grid output {
+    min-width: 2.7em;
+    color: var(--daisy-pink-dark);
+    font-size: 1.65rem;
+    text-align: right;
+}
+
+.daisy-stat-grid small {
+    grid-column: 1;
+    color: var(--daisy-muted);
+    font-size: 0.7rem;
+    text-transform: none;
+}
+
+.daisy-resource-stat span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.daisy-resource-stat button,
+.daisy-team-burnout button {
+    width: 1.9em;
+    height: 1.9em;
+    padding: 0;
+    border: 1px solid var(--daisy-ink);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--daisy-ink);
+    font-weight: 800;
+}
+
+.daisy-resource-stat button:hover,
+.daisy-team-burnout button:hover {
+    border-color: var(--daisy-pink);
+    background: var(--daisy-pink);
+    color: #fff;
+}
+
+.daisy-action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 8px;
+    border: 1px solid var(--daisy-line);
+    border-radius: 8px;
+    background: rgba(19, 13, 18, 0.92);
+}
+
+.daisy-action-bar button {
+    flex: 1 1 118px;
+    min-height: 36px;
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.daisy-action-bar button:hover {
+    border-color: var(--daisy-pink);
+    background: var(--daisy-pink);
+}
+
+.daisy-action-bar i {
+    margin-right: 5px;
+}
+
+.daisy-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.daisy-list-panel {
+    overflow: hidden;
+    border: 1px solid var(--daisy-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 4px 14px rgba(19, 13, 18, 0.08);
+}
+
+.daisy-list-panel > header {
+    display: flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 7px 11px;
+    border-bottom: 1px solid var(--daisy-line);
+    background: var(--daisy-ink);
+    color: #fff;
+}
+
+.daisy-list-panel > header h2 {
+    margin: 0;
+    color: inherit;
+    font-family: "Daisy Daydream", "Daisy Iosevka", Iosevka, sans-serif;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+}
+
+.daisy-list-panel > header button {
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: var(--daisy-pink);
+    color: #fff;
+    font-weight: 800;
+}
+
+.daisy-rule-list {
+    display: grid;
+    max-height: 260px;
+    overflow: auto;
+}
+
+.daisy-rule-list-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    border-bottom: 1px solid var(--daisy-line);
+}
+
+.daisy-rule-list-entry:last-child {
+    border-bottom: 0;
+}
+
+.daisy-rule-list-entry > button:first-child {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+    padding: 9px 11px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--daisy-ink);
+    text-align: left;
+}
+
+.daisy-rule-list-entry > button:first-child:hover {
+    background: rgba(245, 0, 79, 0.08);
+}
+
+.daisy-rule-list-entry small {
+    display: -webkit-box;
+    overflow: hidden;
+    color: var(--daisy-muted);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.daisy-rule-list-entry .remove {
+    align-self: stretch;
+    width: 34px;
+    border: 0;
+    border-left: 1px solid var(--daisy-line);
+    border-radius: 0;
+    background: transparent;
+    color: var(--daisy-pink-dark);
+    font-size: 1.2rem;
+}
+
+.daisy-rule-list-entry .remove:hover {
+    background: var(--daisy-pink);
+    color: #fff;
+}
+
+.daisy-status-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.daisy-status-add select {
+    width: min(14rem, 42vw);
+    min-width: 8rem;
+}
+
+.daisy-status-panel .daisy-chip-list {
+    display: flex;
+    min-height: 52px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    padding: 10px;
+}
+
+.daisy-empty {
+    margin: 0;
+    padding: 14px;
+    color: var(--daisy-muted);
+    font-style: italic;
+}
+
+.daisy-notes-field,
+.daisy-description-field {
+    display: grid;
+    gap: 6px;
+    color: var(--daisy-ink);
+    font-weight: 700;
+}
+
+.daisy-notes-field > span,
+.daisy-description-field > span {
+    color: var(--daisy-pink-dark);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}

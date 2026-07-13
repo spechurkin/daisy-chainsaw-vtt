@@ -1,0 +1,65 @@
+<section class="daisy-browser-layout">
+  <header class="daisy-browser-header">
+    <div>
+      <p class="daisy-kicker">DAISY CHAINSAW</p>
+      <h1>{{localize "DAISY.RuleBrowser.Title"}}</h1>
+      {{#if hasActor}}<p>{{dcFormat "DAISY.RuleBrowser.ForActor" name=actorName}}</p>{{/if}}
+    </div>
+    <label class="daisy-browser-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" value="{{query}}" data-daisy-browser-search placeholder="{{localize 'DAISY.RuleBrowser.SearchPlaceholder'}}" autocomplete="off">
+    </label>
+  </header>
+
+  <nav class="daisy-browser-tabs" aria-label="{{localize 'DAISY.RuleBrowser.Title'}}">
+    {{#each groups}}
+    <button type="button" data-action="select-group" data-group="{{id}}" class="{{#if active}}active{{/if}}">
+      <span>{{label}}</span><small>{{count}}</small>
+    </button>
+    {{/each}}
+  </nav>
+
+  <main class="daisy-browser-results" data-browser-group="{{activeGroup.id}}">
+    <header class="daisy-browser-section-title">
+      <h2>{{activeGroup.label}}</h2>
+      <span>{{activeGroup.count}}</span>
+    </header>
+
+    <div class="daisy-browser-grid">
+      {{#each activeGroup.entries}}
+      <article class="daisy-browser-entry {{#if selected}}selected{{/if}}" data-searchable="{{searchable}}"
+        data-catalog-drag draggable="true" data-slug="{{slug}}" data-kind="{{kind}}" data-name="{{name}}">
+        <header>
+          <div><h3>{{name}}</h3></div>
+          {{#if level}}<span class="daisy-entry-level">{{dcFormat "DAISY.RuleBrowser.EntryLevel" level=level}}</span>{{/if}}
+        </header>
+        <p>{{description}}</p>
+        <footer>
+          {{#if sourcePage}}<small>{{dcFormat "DAISY.RuleBrowser.SourcePage" page=sourcePage}}</small>{{else}}<span></span>{{/if}}
+          <span class="daisy-entry-actions">
+            {{#if selectable}}
+            <button type="button" data-action="toggle-entry" data-slug="{{slug}}" data-kind="{{kind}}"
+              data-collection="{{../collection}}" title="{{#if selected}}{{localize 'DAISY.Actions.RemoveFromSheet'}}{{else}}{{localize 'DAISY.Actions.AddToSheet'}}{{/if}}">
+              <i class="fa-solid {{#if selected}}fa-minus{{else}}fa-plus{{/if}}"></i>
+            </button>
+            {{/if}}
+            {{#if usable}}
+            <button type="button" data-action="use-entry" data-slug="{{slug}}" data-kind="{{kind}}" data-name="{{name}}"
+              data-description="{{description}}" title="{{localize 'DAISY.Actions.Use'}}"><i class="fa-solid fa-play"></i></button>
+            {{/if}}
+          </span>
+        </footer>
+      </article>
+      {{else}}
+      <div class="daisy-browser-empty"><i class="fa-solid fa-folder-open"></i><p>{{localize "DAISY.RuleBrowser.EmptyGroup"}}</p></div>
+      {{/each}}
+      <div class="daisy-browser-empty" data-filter-empty hidden><i class="fa-solid fa-magnifying-glass"></i><p>{{localize "DAISY.RuleBrowser.NoResults"}}</p></div>
+    </div>
+
+    {{#if catalogEmpty}}
+    <div class="daisy-browser-catalog-warning">
+      {{localize "DAISY.RuleBrowser.CatalogUnavailable"}}
+    </div>
+    {{/if}}
+  </main>
+</section>

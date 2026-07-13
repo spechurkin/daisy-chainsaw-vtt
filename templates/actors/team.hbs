@@ -1,0 +1,72 @@
+<section class="daisy-panel-sheet daisy-team-panel">
+  <header class="daisy-panel-header">
+    <button class="daisy-panel-portrait" type="button" data-action="choose-portrait" aria-label="{{localize 'DAISY.Team.ChooseEmblem'}}">
+      <img src="{{actor.img}}" alt="{{actor.name}}">
+    </button>
+    <div class="daisy-panel-identity">
+      <p class="daisy-kicker">{{localize "DAISY.Team.Label"}}</p>
+      <input class="daisy-title-input" type="text" name="name" value="{{actor.name}}" aria-label="{{localize 'DAISY.Team.Name'}}"
+        {{#unless editable}}disabled{{/unless}}>
+      <div class="daisy-inline-fields">
+        <label>{{localize "DAISY.Common.PowerLevel"}} <input type="number" name="system.level" value="{{system.level}}" min="1" max="10"
+          {{#unless editable}}disabled{{/unless}}></label>
+        <span class="daisy-team-burnout">{{localize "DAISY.Resources.Burnout"}}
+          <button type="button" data-action="adjust-burnout" data-delta="-1" aria-label="{{localize 'DAISY.Resources.DecreaseBurnout'}}">−</button>
+          <output>{{burnout}} / {{burnoutMaximum}}</output>
+          <button type="button" data-action="adjust-burnout" data-delta="1" aria-label="{{localize 'DAISY.Resources.IncreaseBurnout'}}">+</button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <div class="daisy-panel-body">
+    <nav class="daisy-action-bar" aria-label="{{localize 'DAISY.Team.Actions'}}">
+      <button type="button" data-action="roll-check" data-pool="{{level}}" data-threshold="6" data-label="{{localize 'DAISY.Combat.TeamCheck'}}"
+        title="{{localize 'DAISY.Combat.TeamCheck'}}">
+        <i class="fa-solid fa-dice"></i><span>{{localize "DAISY.Combat.TeamCheck"}}</span>
+      </button>
+      <button type="button" data-action="open-rule-browser" data-collection="maneuvers" title="{{localize 'DAISY.Actions.Browse'}}">
+        <i class="fa-solid fa-book-open"></i><span>{{localize "DAISY.Actions.Browse"}}</span>
+      </button>
+      <button type="button" data-action="new-episode" title="{{localize 'DAISY.Team.NewEpisode'}}">
+        <i class="fa-solid fa-clapperboard"></i><span>{{localize "DAISY.Team.NewEpisode"}}</span>
+      </button>
+      {{#each episodeTables}}
+      <button type="button" data-action="roll-table" data-slug="{{slug}}" title="{{name}}">
+        <i class="fa-solid fa-dice-d6"></i><span>{{name}}</span>
+      </button>
+      {{/each}}
+    </nav>
+
+    <section class="daisy-list-panel daisy-members-panel">
+      <header><h2>{{localize "DAISY.Team.Members"}}</h2><span>{{members.length}}</span></header>
+      <div class="daisy-member-grid">
+        {{#each members}}
+        <button type="button" class="daisy-member-card" data-action="open-member" data-actor-uuid="{{uuid}}">
+          <img src="{{img}}" alt="">
+          <div><strong>{{name}}</strong><small>{{localize "DAISY.Resources.HarmPoolShort"}} {{damage}} / {{damageMaximum}}</small></div>
+        </button>
+        {{else}}<p class="daisy-empty">{{localize "DAISY.Team.NoMembers"}}</p>{{/each}}
+      </div>
+    </section>
+
+    <section class="daisy-list-panel daisy-mascot-panel">
+      <header><h2>{{localize "DAISY.Team.Mascot.Title"}}</h2></header>
+      <div class="daisy-mascot-grid">
+        <label><span>{{localize "DAISY.Team.Mascot.Appearance"}}</span><textarea name="system.mascot.appearance" rows="3" {{#unless editable}}disabled{{/unless}}>{{system.mascot.appearance}}</textarea></label>
+        <label><span>{{localize "DAISY.Team.Mascot.Character"}}</span><textarea name="system.mascot.character" rows="3" {{#unless editable}}disabled{{/unless}}>{{system.mascot.character}}</textarea></label>
+        <label><span>{{localize "DAISY.Team.Mascot.Origin"}}</span><textarea name="system.mascot.origin" rows="3" {{#unless editable}}disabled{{/unless}}>{{system.mascot.origin}}</textarea></label>
+        <label><span>{{localize "DAISY.Team.Mascot.Goal"}}</span><textarea name="system.mascot.goal" rows="3" {{#unless editable}}disabled{{/unless}}>{{system.mascot.goal}}</textarea></label>
+      </div>
+      <footer class="daisy-mascot-rolls">
+        {{#each mascotTables}}
+        <button type="button" data-action="roll-table" data-slug="{{slug}}"><i class="fa-solid fa-dice-d6"></i> {{name}}</button>
+        {{/each}}
+      </footer>
+    </section>
+
+    <label class="daisy-notes-field"><span>{{localize "DAISY.Team.Notes"}}</span>
+      <textarea name="system.notes" rows="7" {{#unless editable}}disabled{{/unless}}>{{system.notes}}</textarea>
+    </label>
+  </div>
+</section>

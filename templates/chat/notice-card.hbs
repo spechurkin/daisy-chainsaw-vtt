@@ -1,0 +1,21 @@
+<article class="daisy-chat-card daisy-notice-card daisy-chat-actor-{{actor.type}} daisy-notice-{{cssClass}}" data-daisy-message-card>
+  <header class="daisy-chat-header">
+    {{#if actor.img}}<img src="{{actor.img}}" alt="">{{/if}}
+    <div>
+      <p class="daisy-chat-kicker">{{actor.name}}</p>
+      <h3>{{title}}</h3>
+    </div>
+  </header>
+  <div class="daisy-chat-content daisy-prose">{{{content}}}</div>
+  {{#if actions.length}}
+  <footer class="daisy-chat-actions">
+    {{#each actions}}
+    <button type="button" data-daisy-chat-action="{{action}}" data-amount="{{amount}}"
+      data-status-id="{{statusId}}" data-target-uuid="{{targetUuid}}"
+      data-duration="{{duration}}" data-duration-unit="{{durationUnit}}" {{#if disabled}}disabled{{/if}}>
+      {{#if icon}}<i class="{{icon}}"></i>{{/if}}{{label}}
+    </button>
+    {{/each}}
+  </footer>
+  {{/if}}
+</article>

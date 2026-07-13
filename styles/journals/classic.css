@@ -1,0 +1,18 @@
+/* Classic paper journal. */
+
+.application.daisy-journal-classic > .window-header,
+.application.daisy-journal-classic .window-header {
+    background:
+        linear-gradient(90deg, transparent, rgba(245, 0, 79, 0.18) 52%, transparent),
+        #171016;
+}
+
+.daisy-journal-classic .journal-entry-page > header h1,
+.daisy-journal-classic .journal-page-header h1 {
+    padding: 0.28em 0 0.38em;
+    border-bottom: 6px solid var(--daisy-journal-pink);
+    color: #140e12;
+    font-family: "Daisy Daydream", "Daisy Iosevka", Iosevka, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
